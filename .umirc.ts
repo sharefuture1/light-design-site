@@ -27,7 +27,6 @@ const splitChunks = (config: any) => {
 }
 
 export default defineConfig({
-	hash: true,
 	cssnano: {},
 	esbuild: {},
 	title: 'Light Design',
