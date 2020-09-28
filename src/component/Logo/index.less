@@ -1,0 +1,29 @@
+._local {
+      :global {
+            .block {
+                  @size: 16px;
+                  @border_size: 1px;
+
+                  width: @size;
+                  height: @size;
+
+                  &.block_1 {
+                        border: @border_size solid black;
+                        border-right: none;
+                        border-bottom: none;
+                  }
+
+                  &.block_2 {
+                        border: @border_size solid black;
+                        border-left: none;
+                        margin-left: -1px;
+                  }
+
+                  &.block_3 {
+                        border: @border_size solid black;
+                        border-top: none;
+                        margin-top: -1px;
+                  }
+            }
+      }
+}

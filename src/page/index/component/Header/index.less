@@ -1,0 +1,25 @@
+._local {
+      :global {
+            height: 144px;
+
+            .header {
+                  width: var(--width_header);
+                  height: 72px;
+
+                  .nav_items {
+                        .nav_item {
+                              @border_size:2px;
+
+                              width: 80px;
+                              height: 40px;
+                              margin: 0 6px;
+                              opacity: 0.6;
+
+                              &:hover {
+                                    opacity: 1;
+                              }
+                        }
+                  }
+            }
+      }
+}
