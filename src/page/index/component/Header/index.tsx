@@ -8,7 +8,7 @@ const Index = () => {
 	const nav_items: Array<{ name: string; path: string }> = [
 		{
 			name: '组件',
-			path: '/'
+			path: '/com'
 		},
 		{
 			name: '文档',
