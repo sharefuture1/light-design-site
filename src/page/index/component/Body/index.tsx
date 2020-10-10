@@ -9,7 +9,7 @@ const Index = () => {
 		>
 			<div className='content_wrap flex flex_column justify_center align_center'>
 				<span className='slogan'>贴近自然的UI组件库</span>
-				<span className='description'>Light Design，克制的美</span>
+				<span className='description'>Light Design，自然的美</span>
 				<Link
 					className='btn_start border_box flex justify_center align_center transition_normal'
 					to='/'

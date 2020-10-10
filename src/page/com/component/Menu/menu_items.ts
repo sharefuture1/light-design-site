@@ -1,7 +1,8 @@
 export interface IMenuItems {
 	name: string
 	description: string
-	components: Array<{ name: string; description: string }>
+      components: Array<{ name: string; description: string }>
+      fold?:boolean
 }
 
 export default [
@@ -20,16 +21,6 @@ export default [
 			{
 				name: 'Icon',
 				description: '图标'
-			}
-		]
-	},
-	{
-		name: '布局',
-		description: '进行页面布局时使用的组件',
-		components: [
-			{
-				name: 'Button',
-				description: '按钮'
 			}
 		]
 	},
@@ -64,12 +55,12 @@ export default [
 				description: '上传'
 			},
 			{
-				name: 'Checkbox',
-				description: '复选框'
+				name: 'Switch',
+				description: '开关'
 			},
 			{
-				name: 'CheckboxGroup',
-				description: '复选框组'
+				name: 'Counter',
+				description: '计数器'
 			},
 			{
 				name: 'Radio',
@@ -80,12 +71,12 @@ export default [
 				description: '单选框组'
 			},
 			{
-				name: 'Switch',
-				description: '开关'
+				name: 'Checkbox',
+				description: '复选框'
 			},
 			{
-				name: 'Counter',
-				description: '计数器'
+				name: 'CheckboxGroup',
+				description: '复选框组'
 			}
 		]
 	},
@@ -172,8 +163,8 @@ export default [
 		]
 	},
 	{
-            name: '交互',
-            description: '用于界面交互的组件',
+		name: '交互',
+		description: '用于界面交互的组件',
 		components: [
 			{
 				name: 'ActionSheet',

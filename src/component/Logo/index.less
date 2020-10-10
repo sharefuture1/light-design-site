@@ -1,4 +1,12 @@
 ._local {
+      &.bg {
+            :global {
+                  .block {
+                        background-color: black;
+                  }
+            }
+      }
+
       :global {
             .block {
                   @size: 16px;
@@ -6,6 +14,9 @@
 
                   width: @size;
                   height: @size;
+
+                  transform-origin: left center;
+
 
                   &.block_1 {
                         border: @border_size solid black;

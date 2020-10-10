@@ -1,8 +1,98 @@
-@menu_width:200px;
+@menu_width: 270px;
 
 ._local {
       overflow-y: scroll;
+      overflow-x: visible;
       width: @menu_width;
+      padding-top: 36px;
+      border-right: 1px solid var(--color_border);
 
-      :global {}
+      :global {
+            .logo {
+                  padding: 36px 0px;
+                  padding-left: 36px;
+                  line-height: 1;
+                  border-top: 1px solid var(--color_border);
+
+                  &:hover {
+                        background-color: var(--color_hover);
+                  }
+
+                  .logo_text {
+                        margin-left: 24px;
+
+                        .text {
+                              font-size: 24px;
+                              margin-bottom: 10px;
+                        }
+
+                        .slogan {
+                              font-size: 13px;
+                        }
+                  }
+            }
+
+            .preview {
+                  padding: 18px 0px;
+                  padding-left: 36px;
+                  line-height: 1;
+
+                  &:hover {
+                        transform: scale(1);
+                        background-color: var(--color_hover);
+                        font-weight: bold;
+                  }
+            }
+
+            .menu_items {
+                  .menu_item {
+                        margin-bottom: 36px;
+
+                        .title {
+                              color: #aaa;
+                              padding: 18px 0px;
+                              padding-left: 36px;
+                              line-height: 1;
+
+                              &:hover {
+                                    transform: scale(1);
+                                    background-color: var(--color_hover);
+                                    font-weight: bold;
+                              }
+                        }
+
+                        .components {
+                              .component {
+                                    position: relative;
+                                    padding: 18px 0px;
+                                    padding-left: 36px;
+                                    line-height: 1;
+
+                                    &:hover {
+                                          transform: scale(1);
+                                          background-color: var(--color_hover);
+
+                                          &::before {
+                                                position: absolute;
+                                                right: 15px;
+                                                content: '';
+                                                width: 8px;
+                                                height: 8px;
+                                                border-radius: 4px;
+                                          }
+                                    }
+
+                                    .name{
+                                          margin-right: 10px;
+                                    }
+
+                                    .description{
+                                          font-size: 12px;
+                                          color: rgba(170, 170, 170, 0.72);
+                                    }
+                              }
+                        }
+                  }
+            }
+      }
 }
