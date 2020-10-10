@@ -1,0 +1,38 @@
+._local {
+      width: 414px;
+      border-left: 1px solid var(--color_border);
+      overflow:hidden ;
+
+      :global {
+            .simulator {
+                  overflow: hidden;
+
+                  .iframe {
+                        height: 100%;
+                  }
+            }
+
+            .logo {
+                  padding: 48px 0px;
+                  line-height: 1;
+                  border-top: 1px solid var(--color_border);
+
+                  &:hover {
+                        background-color: var(--color_hover);
+                  }
+
+                  .logo_text {
+                        margin-left: 24px;
+
+                        .text {
+                              font-size: 24px;
+                              margin-bottom: 10px;
+                        }
+
+                        .slogan {
+                              font-size: 13px;
+                        }
+                  }
+            }
+      }
+}

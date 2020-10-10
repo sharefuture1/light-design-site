@@ -1,13 +1,14 @@
 export interface IMenuItems {
 	name: string
 	description: string
-      components: Array<{ name: string; description: string }>
-      fold?:boolean
+	path: string
+	components: Array<{ name: string; path: string; description: string }>
 }
 
 export default [
 	{
 		name: '通用',
+		path: 'common',
 		description: '大部分场景下能够使用的组件',
 		components: [
 			{
@@ -25,7 +26,8 @@ export default [
 		]
 	},
 	{
-		name: '功能',
+		name: '全局',
+		path: 'global',
 		description: '通常是一些全局组件',
 		components: [
 			{
@@ -40,6 +42,7 @@ export default [
 	},
 	{
 		name: '表单',
+		path: 'form',
 		description: '进行数据录入时需要使用的组件',
 		components: [
 			{
@@ -82,6 +85,7 @@ export default [
 	},
 	{
 		name: '内容',
+		path: 'content',
 		description: '用于展示内容的组件',
 		components: [
 			{
@@ -164,6 +168,7 @@ export default [
 	},
 	{
 		name: '交互',
+		path: 'action',
 		description: '用于界面交互的组件',
 		components: [
 			{
@@ -207,6 +212,7 @@ export default [
 	},
 	{
 		name: '业务',
+		path: 'business',
 		description: '通常是仅针对特定业务的组件',
 		components: [
 			{
@@ -228,6 +234,38 @@ export default [
 			{
 				name: 'Pagenation',
 				description: '分页'
+			}
+		]
+	},
+	{
+		name: '扩展资源',
+		path: 'more',
+		description: '其他相关资源',
+		components: [
+			{
+				name: 'atom.css',
+				path: 'atom',
+				description: '通用CSS库'
+			},
+			{
+				name: 'XD资源包',
+				path: 'xd',
+				description: 'For Adobe XD'
+			},
+			{
+				name: 'Sketch资源包',
+				path: 'sketch',
+				description: 'For Sketch'
+			},
+			{
+				name: 'Axure资源包',
+				path: 'axure',
+				description: 'For Axure'
+			},
+			{
+				name: 'Cloud Pack',
+				path: 'cloud_pack',
+				description: '独立开发利器'
 			}
 		]
 	}
