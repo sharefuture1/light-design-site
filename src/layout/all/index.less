@@ -1,0 +1,60 @@
+._local {
+      :global {
+            .click_item {
+                  padding-left: 24px;
+
+                  &:hover {
+                        transform: scale(1);
+                        background-color: var(--color_hover);
+                  }
+
+                  &:active {
+                        transform: scale(0.92);
+                  }
+            }
+
+            .menu_item {
+                  margin-bottom: 48px;
+
+                  .title_wrap {
+                        padding: 18px 0;
+
+                        .click_item();
+
+                        .title {
+                              font-size: 20px;
+                        }
+
+                        .description {
+                              color: var(--color_text_sub);
+                        }
+                  }
+
+                  .components {
+                        .component {
+                              width: 100%/5;
+                              padding: 18px 0;
+
+                              .click_item();
+
+                              @media screen and (max-width: 1637px) {
+                                    width: 100%/3;
+                              }
+
+                              @media screen and (max-width: 1240px) {
+                                    width: 100%/2;
+                              }
+
+                              @media screen and (max-width: 1000px) {
+                                    width: 100%;
+                              }
+
+                              .description {
+                                    font-size: 13px;
+                                    color: var(--color_text_desc);
+                              }
+                        }
+                  }
+            }
+      }
+}

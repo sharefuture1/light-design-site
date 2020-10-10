@@ -1,13 +1,24 @@
 ._local {
       :global {
-            .mark {
-                  font-size: 96px;
-                  line-height: 1;
-            }
+            .content_wrap {
+                  .mark {
+                        font-size: 96px;
+                        line-height: 1;
+                        margin-bottom: 8px;
+                  }
 
-            .not_found {
-                  font-size: 12px;
-                  padding-right: 12px;
+                  .tips {
+                        .not_found {
+                              margin-bottom: 24px;
+                              font-size: 13px;
+                              color: var(--color_text_sub);
+                        }
+
+                        .link {
+                              padding: 12px 24px;
+                              border: 1px solid black;
+                        }
+                  }
             }
       }
 }

@@ -1,14 +1,17 @@
 import React from 'react'
 import { Link } from 'umi'
-import menu_items from '@/data/menu_items'
-import styles from '@/layout/all/index.less'
+import { IMenuItems } from '@/data/menu_items'
+import styles from './index.less'
 
-const Index = () => {
+const Index = ({ menu_items }: { menu_items: Array<IMenuItems> }) => {
 	return (
 		<div className={`${styles._local} w_100 border_box flex flex_column`}>
 			{menu_items.map((item) => (
 				<div className='menu_item flex flex_column' key={item.name}>
-					<Link className='title_wrap flex flex_column' to={`/com/${item.path}`}>
+					<Link
+						className='title_wrap flex flex_column'
+						to={`/com/${item.path}`}
+					>
 						<span className='title'>{item.name}</span>
 						<span className='description'>{item.description}</span>
 					</Link>
