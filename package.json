@@ -1,23 +1,26 @@
 {
-      "private": true,
-      "scripts": {
-            "start": "umi dev",
-            "build": "umi build",
-            "postinstall": "umi generate tmp",
-            "test": "umi-test",
-            "test:coverage": "umi-test --coverage"
-      },
-      "dependencies": {
-            "@ant-design/icons": "^4.2.2",
-            "@umijs/preset-react": "1.x",
-            "@umijs/test": "^3.2.22",
-            "ahooks": "^2.6.1",
-            "dva-model-extend": "^0.1.2",
-            "react": "^16.12.0",
-            "react-dom": "^16.12.0",
-            "umi": "^3.2.22"
-      },
-      "devDependencies": {
-            "@umijs/plugin-esbuild": "^1.0.1"
-      }
+  "private": true,
+  "scripts": {
+    "start": "umi dev",
+    "build": "umi build",
+    "postinstall": "umi generate tmp",
+    "test": "umi-test",
+    "test:coverage": "umi-test --coverage"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^4.2.2",
+    "@umijs/preset-react": "1.x",
+    "@umijs/test": "^3.2.22",
+    "ahooks": "^2.6.1",
+    "dva-model-extend": "^0.1.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-markdown": "^4.3.1",
+    "react-syntax-highlighter": "^15.2.1",
+    "umi": "^3.2.22"
+  },
+  "devDependencies": {
+    "@types/react-syntax-highlighter": "^11.0.5",
+    "@umijs/plugin-esbuild": "^1.0.1"
+  }
 }

@@ -1,10 +1,9 @@
 import React from 'react'
-import styles from '../common.less'
 
-const Index = (props: any) => {
-      console.log(props);
+const Index = ({ Markdown }: any) => {
+      // console.log(Markdown);
       
-	return <div className={`${styles._local}`}>button</div>
+      return <Markdown></Markdown>
 }
 
 export default Index
