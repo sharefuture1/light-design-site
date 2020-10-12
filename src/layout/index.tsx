@@ -12,13 +12,16 @@ const Index = ({ children, location: { pathname } }: IRouteComponentProps) => {
 	const [ state_md, setStatemd ] = useState('')
 	const pathnames = pathname.split('/')
 
-	useEffect(() => {
-		if (pathnames.length !== 4) return
+	useEffect(
+		() => {
+			if (pathnames.length !== 4) return
 
-		import(`@/data/doc/${pathnames[2]}/${pathnames[3]}.md`)
-			.then(({ default: md }: any) => setStatemd(md))
-			.catch((e) => console.log(e))
-	}, [])
+			import(`@/data/doc/${pathnames[2]}/${pathnames[3]}.md`)
+				.then(({ default: md }: any) => setStatemd(md))
+				.catch((e) => console.log(e))
+		},
+		[ pathnames ]
+	)
 
 	const Markdown = () => {
 		return state_md ? (
