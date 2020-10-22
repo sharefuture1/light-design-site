@@ -13,7 +13,9 @@
 | url | 跳转链接 | string | normal | 否 | 1.0.0 |
 | target | 在哪个目标上发生跳转 | string | normal | 否 | 1.0.0 |
 
-### 合法值 `[size]`
+<p id="size" class='anchor'>/</p>  
+
+### [size](#size)
 
 | 值 | 说明 | 版本 |
 | - | - | - |
@@ -21,7 +23,9 @@
 | large | 大尺寸按钮 | 1.0.0 |
 | small | 小尺寸按钮 | 1.0.0 |
 
-### 合法值 `[type]`
+<p id="type" class='anchor'>/</p>  
+
+### [type](#type)
 
 | 值 | 说明 | 版本 |
 | - | - | - |
@@ -34,7 +38,9 @@
 | error | 错误 | 1.0.0 |
 | ghost | 幽灵按钮 | 1.0.0 |
 
-### 合法值 `[shape]`
+<p id="shape" class='anchor'>/</p> 
+
+### [shape](#shape)
 
 | 值 | 说明 | 版本 |
 | - | - | - |
@@ -42,7 +48,9 @@
 | circle | 圆边按钮 | 1.0.0 |
 | rect | 矩形按钮 | 1.0.0 |
 
-### 示例
+<p id="示例" class='anchor'>/</p> 
+
+### [示例](#示例)
 
 ```html
 <Button size="normal">常规大小</Button>
