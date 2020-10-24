@@ -20,8 +20,16 @@ export default [
 				description: '文字'
 			},
 			{
+				name: 'Line',
+				description: '线条'
+			},
+			{
 				name: 'Icon',
 				description: '图标'
+			},
+			{
+				name: 'Scroller',
+				description: '滚动容器'
 			}
 		]
 	},
