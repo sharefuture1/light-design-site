@@ -39,18 +39,17 @@ export default () => {
 					</div>
 				))}
 			</div>
-			<Link className='logo flex align_center none' to='/'>
-				<Logo size={1.3} />
-				<div className='logo_text flex flex_column'>
-					<span className='text'>Light Design</span>
-					<div className='flex justify_between'>
-						<span className='slogan'>自</span>
-						<span className='slogan'>然</span>
-						<span className='slogan'>之</span>
-						<span className='slogan'>美</span>
-					</div>
-				</div>
-			</Link>
+			<div className='link_items w_100 border_box flex'>
+				<Link className='link_item flex justify_center align_center' to='/'>
+					文档
+				</Link>
+				<Link className='link_item flex justify_center align_center' to='/'>
+					白皮书
+				</Link>
+				<Link className='link_item flex justify_center align_center' to='/'>
+					Github
+				</Link>
+			</div>
 		</div>
 	)
 }

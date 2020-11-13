@@ -1,7 +1,7 @@
 ._local {
       width: 414px;
       border-left: 1px solid var(--color_border);
-      overflow:hidden ;
+      overflow: hidden;
 
       :global {
             .simulator {
@@ -9,6 +9,40 @@
 
                   .iframe {
                         height: 100%;
+                  }
+            }
+
+            .option_items_wrap {
+                  @size: 60px;
+
+                  .option_items {
+                        width: @size*2;
+                        position: relative;
+                        z-index: 10;
+                        height: @size;
+
+                        .option_item {
+                              width: 36px;
+                              height: 36px;
+                              margin: 0 8px;
+                              border-radius: 50%;
+                              border: 1px solid var(--color_border);
+                              cursor: pointer;
+
+                              &:hover {
+                                    background-color: var(--color_hover);
+                              }
+                        }
+                  }
+
+                  .npm_wrap {
+                        width: calc(~'100% - '@size*2);
+                        border-left: 1px solid var(--color_border);
+                        cursor: pointer;
+
+                        &:hover {
+                              background-color: var(--color_hover);
+                        }
                   }
             }
 
