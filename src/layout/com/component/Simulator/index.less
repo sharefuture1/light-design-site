@@ -13,35 +13,71 @@
             }
 
             .option_items_wrap {
-                  @size: 60px;
+                  @size: 48px;
+                  border-top: 1px solid var(--color_border);
+                  background-color: white;
 
                   .option_items {
-                        width: @size*2;
+                        width: @size*2+48px;
                         position: relative;
                         z-index: 10;
                         height: @size;
 
                         .option_item {
-                              width: 36px;
-                              height: 36px;
-                              margin: 0 8px;
-                              border-radius: 50%;
-                              border: 1px solid var(--color_border);
+                              width: 50%;
+                              height: @size;
+                              font-size: 16px;
+                              box-sizing: border-box;
                               cursor: pointer;
 
                               &:hover {
-                                    background-color: var(--color_hover);
+                                    background-color: whitesmoke;
+
+                                    .type_items {
+                                          border-color: #eee;
+
+                                          .type_item {
+                                                &:nth-of-type(1) {
+                                                      border-color: #eee;
+                                                }
+                                          }
+                                    }
+                              }
+
+                              &:nth-of-type(1) {
+                                    border-right: 1px solid var(--color_border);
+                              }
+
+                              .icon_wrap {
+                                    height: calc(~'100% - 16px');
+                              }
+
+                              .type_items {
+                                    width: 100%;
+                                    border-top: 1px solid var(--color_border);
+
+                                    .type_item {
+                                          width: 50%;
+                                          height: 16px;
+                                          text-align: center;
+                                          font-size: 10px;
+
+                                          &:nth-of-type(1) {
+                                                border-right: 1px solid var(--color_border);
+                                          }
+                                    }
                               }
                         }
                   }
 
                   .npm_wrap {
-                        width: calc(~'100% - '@size*2);
+                        flex: 1;
                         border-left: 1px solid var(--color_border);
+                        font-size: 13px;
                         cursor: pointer;
 
                         &:hover {
-                              background-color: var(--color_hover);
+                              background-color: whitesmoke;
                         }
                   }
             }
@@ -50,6 +86,7 @@
                   padding: 48px 0px;
                   line-height: 1;
                   border-top: 1px solid var(--color_border);
+                  background-color: white;
 
                   &:hover {
                         background-color: var(--color_hover);
