@@ -17,33 +17,33 @@ export default () => {
 				/>
 			</div>
 			<div className='option_items_wrap w_100 border_box flex'>
-				<div className='option_items w_100 border_box flex justify_center align_center'>
-					<div className='option_item flex flex_column justify_between align_center'>
-						<div className='icon_wrap flex align_center'>
-							<CloudDownloadOutlined />
+				<div className='option_items w_100 border_box flex flex_column justify_center align_center'>
+					<button className='option_item flex align_center'>
+						<div className='icon_download_wrap flex justify_center align_center'>
+							<CloudDownloadOutlined className='icon_download' />
 						</div>
-						<div className='type_items flex'>
-							<span className='type_item flex justify_center align_center'>
-								less
-							</span>
-							<span className='type_item flex justify_center align_center'>
+						<div className='type_items flex justify_end align_center'>
+							<code className='type_item flex justify_center align_center'>
 								ts
-							</span>
+							</code>
+							<code className='type_item flex justify_center align_center'>
+								less
+							</code>
 						</div>
-					</div>
-					<div className='option_item flex flex_column justify_between align_center'>
-						<div className='icon_wrap flex align_center'>
-							<CloudDownloadOutlined />
+					</button>
+					<button className='option_item flex align_center'>
+						<div className='icon_download_wrap flex justify_center align_center'>
+							<CloudDownloadOutlined className='icon_download' />
 						</div>
-						<div className='type_items flex'>
-							<span className='type_item flex justify_center align_center'>
-								wxss
-							</span>
-							<span className='type_item flex justify_center align_center'>
+						<div className='type_items flex justify_end align_center'>
+							<code className='type_item flex justify_center align_center'>
 								js
-							</span>
+							</code>
+							<code className='type_item flex justify_center align_center'>
+								wxss
+							</code>
 						</div>
-					</div>
+					</button>
 				</div>
 				<div className='npm_wrap w_100 border_box flex justify_center align_center'>
 					npm i @matrixage/lightd-button
