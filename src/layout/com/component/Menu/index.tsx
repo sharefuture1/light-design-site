@@ -41,6 +41,9 @@ export default () => {
 			</div>
 			<div className='link_items w_100 border_box flex'>
 				<Link className='link_item flex justify_center align_center' to='/'>
+					首页
+				</Link>
+				<Link className='link_item flex justify_center align_center' to='/'>
 					文档
 				</Link>
 				<Link className='link_item flex justify_center align_center' to='/'>

@@ -17,7 +17,7 @@ export default () => {
 				/>
 			</div>
 			<div className='option_items_wrap w_100 border_box flex'>
-				<div className='option_items w_100 border_box flex flex_column justify_center align_center'>
+				<div className='option_items border_box flex flex_column justify_center align_center'>
 					<button className='option_item flex align_center'>
 						<div className='icon_download_wrap flex justify_center align_center'>
 							<CloudDownloadOutlined className='icon_download' />
