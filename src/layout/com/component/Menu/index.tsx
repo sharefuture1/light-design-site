@@ -1,14 +1,23 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { Link } from 'umi'
 import { AppstoreOutlined } from '@ant-design/icons'
-import Logo from '@/component/Logo'
 import styles from './index.less'
 import menu_items from '@/data/menu_items'
 
-export default () => {
+interface IProps {
+	fold: boolean
+}
+
+const Index = (props: IProps) => {
+	const { fold } = props
+
 	return (
 		<div
-			className={`${styles._local} h_100vh border_box flex flex_column fixed top_0 left_0`}
+			className={`
+                        ${styles._local} 
+                        ${fold ? styles.fold : ''} 
+                        h_100vh border_box flex flex_column fixed top_0 left_0 transition_normal
+                  `}
 		>
 			<Link className='preview flex align_center' to='/com'>
 				<AppstoreOutlined style={{ fontSize: '18px' }} />
@@ -39,20 +48,8 @@ export default () => {
 					</div>
 				))}
 			</div>
-			<div className='link_items w_100 border_box flex'>
-				<Link className='link_item flex justify_center align_center' to='/'>
-					首页
-				</Link>
-				<Link className='link_item flex justify_center align_center' to='/'>
-					文档
-				</Link>
-				<Link className='link_item flex justify_center align_center' to='/'>
-					白皮书
-				</Link>
-				<Link className='link_item flex justify_center align_center' to='/'>
-					Github
-				</Link>
-			</div>
 		</div>
 	)
 }
+
+export default memo(Index)

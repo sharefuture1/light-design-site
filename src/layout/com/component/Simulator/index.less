@@ -1,3 +1,7 @@
+.fold {
+      transform: translateX(100%);
+}
+
 ._local {
       width: 414px;
       border-left: 1px solid var(--color_border);
@@ -15,11 +19,11 @@
             .option_items_wrap {
                   @size: 48px;
 
+                  position: relative;
                   height: @size;
                   border-top: 1px solid var(--color_border);
                   background-color: white;
                   z-index: 100;
-                  box-shadow: 0 -10px 10px rgba(238, 238, 238, 0.3);
 
                   .icon_download_wrap {
                         width: @size;
@@ -27,6 +31,7 @@
 
                         .icon_download {
                               line-height: 1;
+                              font-size: 18px;
                         }
                   }
 
@@ -34,7 +39,6 @@
                         flex: 1;
                         border-left: 1px solid var(--color_border);
                         font-size: 15px;
-                        color: rgba(0, 0, 0, 0.6);
                   }
             }
 
