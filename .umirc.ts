@@ -36,7 +36,16 @@ export default defineConfig({
 	alias: { '@root': path.join(__dirname, './') },
 	dynamicImport: { loading: '@/component/Landing' },
 	nodeModulesTransform: { type: 'none', exclude: [] },
+	locale: { baseNavigator: false, default: 'zh-CN', antd: true },
 	targets: { chrome: 79, firefox: false, safari: false, edge: false, ios: false },
+	theme: {
+		'font-size-base': '15px',
+		'primary-color': '#000000',
+		'outline-width': '0px',
+		'border-radius-base': '24px',
+		'border-color-base': 'rgba(245, 245, 245, 0.72)',
+		'border-color-split': 'rgba(245, 245, 245, 0.72)'
+	},
 	chainWebpack: (config) => {
 		if (isProd) splitChunks(config)
 	}

@@ -1,0 +1,82 @@
+.ant-btn {
+      border: none;
+      outline: none;
+      box-shadow: none;
+
+      &.ant-btn-loading {
+            .ant-btn-loading-icon {
+                  width: auto !important;
+            }
+      }
+
+      &:hover {
+            transform: none;
+      }
+
+      &::after {
+            display: none !important;
+      }
+}
+
+.ant-radio-button-wrapper {
+      &:focus-within {
+            box-shadow: none !important;
+      }
+}
+
+.ant-modal {
+      .ant-modal-content {
+            overflow: hidden;
+
+            .ant-modal-header {
+                  padding: 18px 24px;
+                  border-bottom: none;
+
+                  .ant-modal-title {
+                        font-size: 15px;
+                        font-weight: normal;
+                  }
+            }
+
+            .ant-modal-body {
+                  padding: 0;
+            }
+
+            .ant-modal-footer {
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  padding: 0;
+                  border-top: none;
+                  border-top: 1px solid var(--color_border);
+
+                  .ant-btn {
+                        width: 50%;
+                        height: 48px;
+                        border-radius: 0px;
+                        box-sizing: border-box;
+
+                        &:hover {
+                              background-color: whitesmoke !important;
+                        }
+
+                        &::after {
+                              display: none;
+                        }
+
+                        &:nth-of-type(2) {
+                              margin-left: 0;
+                              background-color: transparent;
+                              color: black;
+                              border-left: 1px solid var(--color_border);
+                        }
+                  }
+            }
+
+            .ant-modal-close {
+                  top: 2px;
+                  right: 6px;
+                  opacity: 0.3;
+            }
+      }
+}

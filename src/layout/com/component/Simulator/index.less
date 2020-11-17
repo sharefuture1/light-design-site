@@ -13,53 +13,20 @@
             }
 
             .option_items_wrap {
-                  @size: 72px;
+                  @size: 48px;
+
+                  height: @size;
                   border-top: 1px solid var(--color_border);
                   background-color: white;
                   z-index: 100;
+                  box-shadow: 0 -10px 10px rgba(238, 238, 238, 0.3);
 
-                  .option_items {
-                        position: relative;
-                        z-index: 10;
-                        height: @size;
+                  .icon_download_wrap {
+                        width: @size;
+                        height: 100%;
 
-                        .option_item {
-                              @size_btn: 36px;
-
-                              height: @size_btn;
-                              padding: 0 12px;
-                              padding-left: 16px;
-                              border-radius: 0;
-                              background-color: white;
-                              cursor: pointer;
-
-                              &:hover {
-                                    background-color: whitesmoke;
-                                    transform: scale(1);
-                              }
-
-                              &:first-child {
-                                    border-bottom: 1px solid var(--color_border);
-                              }
-
-                              .icon_download_wrap {
-                                    height: @size_btn;
-                                    margin-right: 4px;
-
-                                    .icon_download {
-                                          line-height: 1;
-                                    }
-                              }
-
-                              .type_items {
-                                    padding: 0 4px;
-
-                                    .type_item {
-                                          padding: 0 2px;
-                                          font-size: 13px;
-                                          line-height: 1;
-                                    }
-                              }
+                        .icon_download {
+                              line-height: 1;
                         }
                   }
 
@@ -67,11 +34,14 @@
                         flex: 1;
                         border-left: 1px solid var(--color_border);
                         font-size: 15px;
-                        cursor: pointer;
+                        color: rgba(0, 0, 0, 0.6);
+                  }
+            }
 
-                        &:hover {
-                              background-color: whitesmoke;
-                        }
+            .modal_download {
+                  .download_items {
+                        padding: 24px;
+                        padding-bottom: 42px;
                   }
             }
 

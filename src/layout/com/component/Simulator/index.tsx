@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'umi'
-import { CloudDownloadOutlined } from '@ant-design/icons'
+import { Modal, Radio } from 'antd'
+import { DownloadOutlined } from '@ant-design/icons'
 import Logo from '@/component/Logo'
 import styles from './index.less'
 
 export default () => {
+	const [ state_visible_modal, setStateVisibleModal ] = useState(false)
+
 	return (
 		<div
 			className={`${styles._local} h_100vh border_box flex flex_column justify_center fixed top_0 right_0`}
@@ -17,35 +20,29 @@ export default () => {
 				/>
 			</div>
 			<div className='option_items_wrap w_100 border_box flex'>
-				<div className='option_items border_box flex flex_column justify_center align_center'>
-					<button className='option_item flex align_center'>
-						<div className='icon_download_wrap flex justify_center align_center'>
-							<CloudDownloadOutlined className='icon_download' />
-						</div>
-						<div className='type_items flex justify_end align_center'>
-							<code className='type_item flex justify_center align_center'>
-								ts
-							</code>
-							<code className='type_item flex justify_center align_center'>
-								less
-							</code>
-						</div>
-					</button>
-					<button className='option_item flex align_center'>
-						<div className='icon_download_wrap flex justify_center align_center'>
-							<CloudDownloadOutlined className='icon_download' />
-						</div>
-						<div className='type_items flex justify_end align_center'>
-							<code className='type_item flex justify_center align_center'>
-								js
-							</code>
-							<code className='type_item flex justify_center align_center'>
-								wxss
-							</code>
-						</div>
-					</button>
+				<Modal
+					title='下载组件'
+					width='400px'
+					wrapClassName='modal_download'
+					centered={true}
+					getContainer={false}
+					visible={state_visible_modal}
+					onCancel={() => setStateVisibleModal(false)}
+				>
+					<div className='download_items flex justify_center'>
+						<Radio.Group value='large'>
+							<Radio.Button value='large'>less ts</Radio.Button>
+							<Radio.Button value='default'>wxss js</Radio.Button>
+						</Radio.Group>
+					</div>
+				</Modal>
+				<div
+					className='icon_download_wrap border_box flex flex_column justify_center align_center use_hover'
+					onClick={() => setStateVisibleModal(true)}
+				>
+					<DownloadOutlined className='icon_download' />
 				</div>
-				<div className='npm_wrap w_100 border_box flex justify_center align_center'>
+				<div className='npm_wrap w_100 border_box flex justify_center align_center use_hover'>
 					npm i @matrixage/lightd-button
 				</div>
 			</div>
