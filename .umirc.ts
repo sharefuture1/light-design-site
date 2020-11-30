@@ -32,6 +32,7 @@ export default Object.assign(
 		title: 'Light Design',
 		cssnano: {},
 		singular: true,
+		exportStatic: {},
 		favicon: '/favicon.ico',
 		dva: { immer: true, hmr: true },
 		alias: { '@root': path.join(__dirname, './') },
@@ -52,5 +53,5 @@ export default Object.assign(
 		}
 	}),
 	isProd ? {} : { esbuild: {} },
-	ssr ? { ssr: { devServerRender: !isProd, mode: 'stream' }, exportStatic: {} } : {}
+	ssr ? { ssr: { devServerRender: !isProd, mode: 'stream' } } : {}
 )
