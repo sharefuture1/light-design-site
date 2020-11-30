@@ -2,7 +2,7 @@
       "private": true,
       "scripts": {
             "dev": "umi dev",
-            "build": "umi build && npm run start",
+            "build": "umi build",
             "start": "node ./server/app",
             "postinstall": "umi generate tmp",
             "test": "umi-test",
