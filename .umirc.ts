@@ -2,6 +2,7 @@ import * as path from 'path'
 import { defineConfig } from 'umi'
 
 const isProd = process.env.NODE_ENV === 'production'
+const ssr = false
 
 const splitChunks = (config: any) => {
 	config.merge({
@@ -29,9 +30,8 @@ const splitChunks = (config: any) => {
 export default Object.assign(
 	defineConfig({
 		title: 'Light Design',
-            cssnano: {},
+		cssnano: {},
 		singular: true,
-		ssr: { devServerRender: !isProd, mode: 'stream' },
 		favicon: '/favicon.ico',
 		dva: { immer: true, hmr: true },
 		alias: { '@root': path.join(__dirname, './') },
@@ -51,5 +51,6 @@ export default Object.assign(
 			if (isProd) splitChunks(config)
 		}
 	}),
-	isProd ? {} : { esbuild: {} }
+	isProd ? {} : { esbuild: {} },
+	ssr ? { ssr: { devServerRender: !isProd, mode: 'stream' }, exportStatic: {} } : {}
 )
