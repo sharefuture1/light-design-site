@@ -45,28 +45,30 @@ const Index = (props: IProps) => {
 				</div>
 			</Link>
 			<div className='option_items_wrap w_100 border_box flex'>
-				<Modal
-					title={`下载 ${component_name} 组件`}
-					width='400px'
-					wrapClassName='modal_download'
-					centered={true}
-					closable={false}
-					getContainer={false}
-					visible={state_visible_modal}
-					onCancel={() => setStateVisibleModal(false)}
-				>
-					<div className='download_items flex justify_center'>
-						<Group
-							value={state_download_type}
-							onChange={({ target: { value } }) => {
-								setStateDownloadType(value)
-							}}
-						>
-							<Button value='ts'>less ts</Button>
-							<Button value='js'>wxss js</Button>
-						</Group>
-					</div>
-				</Modal>
+				{state_visible_modal && (
+					<Modal
+						title={`下载 ${component_name} 组件`}
+						width='400px'
+						wrapClassName='modal_download'
+						centered={true}
+						closable={false}
+						getContainer={false}
+						visible={state_visible_modal}
+						onCancel={() => setStateVisibleModal(false)}
+					>
+						<div className='download_items flex justify_center'>
+							<Group
+								value={state_download_type}
+								onChange={({ target: { value } }) => {
+									setStateDownloadType(value)
+								}}
+							>
+								<Button value='ts'>less ts</Button>
+								<Button value='js'>wxss js</Button>
+							</Group>
+						</div>
+					</Modal>
+				)}
 				<Tooltip title='下载组件'>
 					<div
 						className='icon_download_wrap border_box flex flex_column justify_center align_center use_hover'
