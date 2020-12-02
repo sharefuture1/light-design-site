@@ -7,7 +7,6 @@ const Index = () => {
 		>
 			<footer className='footer w_100 border_box flex justify_center align_center relative'>
                         <a
-                              className='transition_normal'
 					href='https://github.com/MatrixAge'
 					target='_blank'
 					rel='noopener noreferrer'

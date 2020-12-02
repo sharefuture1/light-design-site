@@ -1,5 +1,4 @@
 const withPlugins = require('next-compose-plugins')
-const withCss = require('@zeit/next-css')
 const withAntdLess = require('next-antd-aza-less')
 const { modifyVars, handleAntd } = require('./utils/build/use_antd')
 const { handleMarkdown } = require('./utils/build/use_md')
@@ -7,6 +6,11 @@ const { handleOptimize } = require('./utils/build/use_optimize')
 
 const config = {
 	cssModules: true,
+	typescript: {
+		transpileOnly: true,
+		ignoreDevErrors: true,
+		ignoreBuildErrors: true
+	},
 	cssLoaderOptions: {
 		importLoaders: 1,
 		localIdentName: '[hash:base64:4]'
@@ -15,7 +19,13 @@ const config = {
 		javascriptEnabled: true,
 		modifyVars: modifyVars
 	},
-      webpack: (config, {isServer}) => {
+	experimental: {
+		workerThreads: true,
+		optimizeFonts: true,
+		optimizeImages: true,
+		optimizeCss: true
+	},
+	webpack: (config, { isServer }) => {
 		handleAntd(config, isServer)
 		handleMarkdown(config)
 		handleOptimize(config)
@@ -24,4 +34,4 @@ const config = {
 	}
 }
 
-module.exports = withPlugins([ withCss, withAntdLess ], config)
+module.exports = withPlugins([ withAntdLess ], config)

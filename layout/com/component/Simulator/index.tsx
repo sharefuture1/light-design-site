@@ -22,7 +22,7 @@ const Index = (props: IProps) => {
 			className={`
                         ${styles._local} 
                         ${fold ? styles.fold : ''} 
-                        h_100vh border_box flex flex_column justify_center fixed top_0 right_0 transition_normal
+                        h_100vh border_box flex flex_column justify_center fixed top_0 right_0 
                   `}
 		>
 			<div className='simulator w_100 h_100 border_box'>

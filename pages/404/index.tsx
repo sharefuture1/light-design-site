@@ -1,8 +1,7 @@
-
 import NavLink from '@/components/NavLink'
 import styles from './index.less'
 
-export default () => (
+const Index = () => (
 	<div
 		className={`${styles._local} w_100vw h_100vh flex flex_column justify_center align_center`}
 	>
@@ -17,3 +16,5 @@ export default () => (
 		</div>
 	</div>
 )
+
+export default Index

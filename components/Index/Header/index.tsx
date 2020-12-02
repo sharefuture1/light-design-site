@@ -37,7 +37,7 @@ const Index = () => {
 				</NavLink>
 				<div className='nav_items w_100 h_100 border_box flex justify_center align_center'>
 					{nav_items.map((item) => (
-						<NavLink className='nav_item transition_normal border_box flex justify_center align_center' to={item.path} key={item.name}>
+						<NavLink className='nav_item border_box flex justify_center align_center' to={item.path} key={item.name}>
 							{item.name}
 						</NavLink>
 					))}

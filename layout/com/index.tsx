@@ -58,7 +58,7 @@ const Index = (props: IProps) => {
 				className={`
                               ${fold_menu ? 'fold_menu' : ''} 
                               ${fold_simulator ? 'fold_simulator' : ''} 
-                              content_wrap w_100 border_box transition_normal
+                              content_wrap w_100 border_box
                         `}
 			>
 				<div className='content w_100 border_box flex flex_column'>

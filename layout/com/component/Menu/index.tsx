@@ -16,7 +16,7 @@ const Index = (props: IProps) => {
 			className={`
                         ${styles._local} 
                         ${fold ? styles.fold : ''} 
-                        h_100vh border_box flex flex_column fixed top_0 left_0 transition_normal
+                        h_100vh border_box flex flex_column fixed top_0 left_0
                   `}
 		>
 			<NavLink className='preview flex align_center' to='/com'>
@@ -30,7 +30,7 @@ const Index = (props: IProps) => {
 							className='title cursor_point'
 							to={`/com/${item.path}`}
 						>
-							{item.name}
+							<span>{item.name}</span>
 						</NavLink>
 						<div className='components flex flex_column'>
 							{item.components.map(it => (

@@ -30,7 +30,7 @@ const Index = (props: IProps) => {
 			className={`
                         ${styles._local} 
                         ${fold_simulator ? styles.fold_simulator : ''} 
-                        border_box flex flex_column fixed transition_normal
+                        border_box flex flex_column fixed
                   `}
 		>
 			<div
