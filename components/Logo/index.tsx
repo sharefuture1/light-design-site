@@ -1,10 +1,11 @@
-import React from 'react'
 import styles from './index.less'
 
-export default ({ size = 1, bg = false }: { size?: number; bg?: boolean }) => {
+const Index = ({ size = 1, bg = false }: { size?: number; bg?: boolean }) => {
 	return (
 		<div
-			className={`flex flex_column cursor_point ${styles._local} ${bg?styles.bg:''}`}
+			className={`flex flex_column cursor_point ${styles._local} ${bg
+				? styles.bg
+				: ''}`}
 			style={{ transform: `scale(${size})` }}
 		>
 			<div className='border_box flex'>
@@ -15,3 +16,5 @@ export default ({ size = 1, bg = false }: { size?: number; bg?: boolean }) => {
 		</div>
 	)
 }
+
+export default Index

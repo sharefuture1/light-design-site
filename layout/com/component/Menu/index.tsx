@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import { memo } from 'react'
 import NavLink from '@/components/NavLink'
 import { AppstoreOutlined } from '@ant-design/icons'
 import styles from './index.less'
@@ -19,19 +19,22 @@ const Index = (props: IProps) => {
                         h_100vh border_box flex flex_column fixed top_0 left_0 transition_normal
                   `}
 		>
-			<Link className='preview flex align_center' to='/com'>
+			<NavLink className='preview flex align_center' to='/com'>
 				<AppstoreOutlined style={{ fontSize: '18px' }} />
 				<span className='ml_10'>所有组件</span>
-			</Link>
+			</NavLink>
 			<div className='menu_items flex flex_column'>
-				{menu_items.map((item) => (
+				{menu_items.map(item => (
 					<div className='menu_item flex flex_column' key={item.name}>
-						<Link className='title cursor_point' to={`/com/${item.path}`}>
+						<NavLink
+							className='title cursor_point'
+							to={`/com/${item.path}`}
+						>
 							{item.name}
-						</Link>
+						</NavLink>
 						<div className='components flex flex_column'>
-							{item.components.map((it) => (
-								<Link
+							{item.components.map(it => (
+								<NavLink
 									className='component flex align_end relative'
 									to={`/com/${item.path}/${it.path
 										? it.path
@@ -42,7 +45,7 @@ const Index = (props: IProps) => {
 									<span className='description'>
 										{it.description}
 									</span>
-								</Link>
+								</NavLink>
 							))}
 						</div>
 					</div>

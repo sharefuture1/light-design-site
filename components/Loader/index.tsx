@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from './index.less'
 
 interface IProps {
@@ -6,7 +5,7 @@ interface IProps {
 	maskVisible?: boolean
 }
 
-export default ({ visible, maskVisible }: IProps) => {
+const Index = ({ visible, maskVisible }: IProps) => {
 	return (
 		<div
 			className={`
@@ -22,3 +21,5 @@ export default ({ visible, maskVisible }: IProps) => {
 		</div>
 	)
 }
+
+export default Index

@@ -1,12 +1,21 @@
-import React from 'react'
+
+import { NextPage } from 'next'
 import NavLink from '@/components/NavLink'
-import menu_items from '@/data/menu_items'
+import _menu_items from '@/data/menu_items'
+import request from '@/utils/use_request'
+import {IMenuItems} from '@/@types/global.interface'
 import styles from '@/layout/all/index.less'
 
-const Index = () => {
+interface IProps {
+	menu_items: Array<IMenuItems>
+}
+
+const Index :NextPage<IProps> = ({menu_items}) => {
+      console.log(menu_items)
+
 	return (
 		<div className={`${styles._local} w_100 border_box flex flex_column`}>
-			{menu_items.map(item => (
+			{_menu_items.map(item => (
 				<div className='menu_item flex flex_column' key={item.name}>
 					<NavLink
 						className='title_wrap flex flex_column'
@@ -35,6 +44,12 @@ const Index = () => {
 			))}
 		</div>
 	)
+}
+
+export const getServerSideProps = async () => {
+	const menu_items = await request.get(`/coms/getMenuItems`)
+
+	return { props: { menu_items } }
 }
 
 export default Index

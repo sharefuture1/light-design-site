@@ -1,4 +1,6 @@
 .markdown {
+      width: 100%;
+      box-sizing: border-box;
       padding: 18px 36px;
       color: black;
 
@@ -9,7 +11,7 @@
 
             table {
                   width: 100%;
-                  margin-bottom: 24px;
+                  margin-bottom: 48px;
                   border-collapse: separate;
                   border-spacing: 0px;
 
@@ -31,6 +33,7 @@
                   }
 
                   th {
+                        padding-top: 8px;
                         white-space: nowrap;
                         border-bottom: 1px solid var(--color_border);
                         font-weight: normal;
@@ -44,7 +47,7 @@
             h4,
             h5,
             h6 {
-                  display: inline-block;
+                  display: flex;
                   margin-bottom: 8px;
                   font-weight: 500;
                   line-height: 1;
@@ -54,8 +57,13 @@
                   font-size: 2em;
             }
 
-            h3{
+            h2 {
+                  margin-bottom: 24px;
+            }
+
+            h3 {
                   padding-left: 8px;
+                  margin-bottom: 15px;
                   border-left: 3px solid black;
                   border-radius: 3px;
             }
@@ -67,14 +75,25 @@
             }
 
             pre {
-                  overflow: auto;
-                  padding: 20px 24px !important;
-                  line-height: 1.8 !important;
-                  border-radius: 10px;
-                  background: black !important;
+                  padding: 0;
+                  margin: 0;
+                  overflow: visible;
+            }
 
-                  code {
-                        font-size: 13px !important;
+            .prism-code {
+                  overflow: auto;
+                  padding: 16px 20px !important;
+                  margin-bottom: 48px !important;
+                  line-height: 1.8 !important;
+                  font-size: 13px !important;
+                  border-radius: 6px;
+                  background: black !important;
+                  transition: all ease 0.3s;
+                  cursor: pointer;
+                  overflow: scroll;
+
+                  .token-line:last-child{
+                        display: none;
                   }
             }
 

@@ -1,7 +1,6 @@
-import React from 'react'
 import styles from './index.less'
 
-export default () => {
+const Index = () => {
 	return (
 		<div className={`${styles._local} w_100 border_box flex flex_column`}>
 			<div className='name_wrap border_box'>
@@ -12,3 +11,5 @@ export default () => {
 		</div>
 	)
 }
+
+export default Index

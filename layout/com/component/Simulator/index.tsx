@@ -1,4 +1,4 @@
-import React, { memo, useState } from 'react'
+import { memo, useState } from 'react'
 import NavLink from '@/components/NavLink'
 import { Modal, Radio, Tooltip } from 'antd'
 import { DownloadOutlined } from '@ant-design/icons'
@@ -32,7 +32,7 @@ const Index = (props: IProps) => {
 					frameBorder='0'
 				/>
 			</div>
-			<Link className='logo w_100 border_box flex justify_center align_center' to='/'>
+			<NavLink className='logo w_100 border_box flex justify_center align_center' to='/'>
 				<Logo size={1.3} />
 				<div className='logo_text flex flex_column'>
 					<span className='text'>Light Design</span>
@@ -43,7 +43,7 @@ const Index = (props: IProps) => {
 						<span className='slogan'>美</span>
 					</div>
 				</div>
-			</Link>
+			</NavLink>
 			<div className='option_items_wrap w_100 border_box flex'>
 				{state_visible_modal && (
 					<Modal

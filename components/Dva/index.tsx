@@ -1,4 +1,3 @@
-import React from 'react'
 import { Provider } from 'react-redux'
 import createApp from '@/utils/use_dva'
 import models from '@/utils/register_model'

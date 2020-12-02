@@ -4,7 +4,7 @@ import Layout from '@/layout'
 import Antd from '@/components/Antd'
 import Dva from '@/components/Dva'
 import useProgress from '@/hooks/use_progress'
-import './_app.less'
+import '@/styles/global.less'
 
 const Index = ({ Component, pageProps }: AppProps) => {
 	useProgress()

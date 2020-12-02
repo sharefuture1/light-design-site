@@ -1,4 +1,4 @@
-import React, { memo, useState, useEffect } from 'react'
+import { memo, useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Menu from './component/Menu'
 import Options from './component/Options'

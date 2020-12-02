@@ -1,4 +1,4 @@
-import React, { memo, useState } from 'react'
+import { memo, useState } from 'react'
 import NavLink from '@/components/NavLink'
 import { Tooltip } from 'antd'
 import {
@@ -22,12 +22,7 @@ interface IProps {
 }
 
 const Index = (props: IProps) => {
-	const {
-		changeMenuFoldStatus,
-		changeSimulatorFoldStatus,
-		fold_menu,
-		fold_simulator
-	} = props
+	const { changeMenuFoldStatus, changeSimulatorFoldStatus, fold_menu, fold_simulator } = props
 	const [ state_visible_options, setStateVisibleOptions ] = useState(false)
 
 	return (
@@ -61,36 +56,44 @@ const Index = (props: IProps) => {
 					</div>
 				</Tooltip>
 				<Tooltip title='首页' placement='left'>
-					<Link
-						className='option_item option_wrap border_box flex justify_center align_center use_hover'
-						to='/'
-					>
-						<HomeOutlined />
-					</Link>
+					<div>
+						<NavLink
+							className='option_item option_wrap border_box flex justify_center align_center use_hover'
+							to='/'
+						>
+							<HomeOutlined />
+						</NavLink>
+					</div>
 				</Tooltip>
 				<Tooltip title='文档' placement='left'>
-					<Link
-						className='option_item option_wrap border_box flex justify_center align_center use_hover'
-						to='/'
-					>
-						<FileSearchOutlined />
-					</Link>
+					<div>
+						<NavLink
+							className='option_item option_wrap border_box flex justify_center align_center use_hover'
+							to='/'
+						>
+							<FileSearchOutlined />
+						</NavLink>
+					</div>
 				</Tooltip>
 				<Tooltip title='白皮书' placement='left'>
-					<Link
-						className='option_item option_wrap border_box flex justify_center align_center use_hover'
-						to='/'
-					>
-						<ReadOutlined />
-					</Link>
+					<div>
+						<NavLink
+							className='option_item option_wrap border_box flex justify_center align_center use_hover'
+							to='/'
+						>
+							<ReadOutlined />
+						</NavLink>
+					</div>
 				</Tooltip>
 				<Tooltip title='Github' placement='left'>
-					<Link
-						className='option_item option_wrap border_box flex justify_center align_center use_hover'
-						to='/'
-					>
-						<GithubOutlined />
-					</Link>
+					<div>
+						<NavLink
+							className='option_item option_wrap border_box flex justify_center align_center use_hover'
+							to='/'
+						>
+							<GithubOutlined />
+						</NavLink>
+					</div>
 				</Tooltip>
 			</div>
 			<div

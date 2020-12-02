@@ -1,4 +1,3 @@
-import React from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
@@ -6,6 +5,7 @@ interface IProps {
 	to: string
 	as?: string
 	className?: string
+	prefetch?: boolean
 }
 
 const NavLink: React.FC<IProps> = props => {
@@ -14,7 +14,7 @@ const NavLink: React.FC<IProps> = props => {
 
 	return (
 		<Link as={as} href={to}>
-			<a className={router.pathname === to ? 'active_link' + className : className}>
+			<a className={router.pathname === to ? 'active_link ' + className : className}>
 				{children}
 			</a>
 		</Link>

@@ -1,8 +1,9 @@
 const withPlugins = require('next-compose-plugins')
 const withCss = require('@zeit/next-css')
 const withAntdLess = require('next-antd-aza-less')
-const { modifyVars, handleAntd } = require('./utils/use_antd')
-const { handleMarkdown } = require('./utils/use_md')
+const { modifyVars, handleAntd } = require('./utils/build/use_antd')
+const { handleMarkdown } = require('./utils/build/use_md')
+const { handleOptimize } = require('./utils/build/use_optimize')
 
 const config = {
 	cssModules: true,
@@ -14,9 +15,10 @@ const config = {
 		javascriptEnabled: true,
 		modifyVars: modifyVars
 	},
-	webpack: (config, { isServer }) => {
-		handleMarkdown(config)
+      webpack: (config, {isServer}) => {
 		handleAntd(config, isServer)
+		handleMarkdown(config)
+		handleOptimize(config)
 
 		return config
 	}

@@ -3,7 +3,7 @@ const fs = require('fs')
 const path = require('path')
 
 const modifyVars = lessToJS(
-	fs.readFileSync(path.resolve(__dirname, '../styles/custom.less'), 'utf8')
+	fs.readFileSync(path.resolve(__dirname, '../../styles/custom.less'), 'utf8')
 )
 
 const handleAntd = (config, isServer) => {
