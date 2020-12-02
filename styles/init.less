@@ -1,0 +1,32 @@
+@import './libs/normalize.less';
+
+:global {
+
+      html,
+      body {
+            font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
+                  Helvetica, sans-serif;
+            -webkit-font-smoothing: subpixel-antialiased;
+            scroll-behavior: smooth;
+            color: black;
+            background-color: white;
+      }
+
+      button {
+            outline: none;
+            border: none;
+            cursor: pointer;
+            transition: all ease 0.3s;
+            background-color: white;
+      }
+
+      a {
+            color: var(--color_text_main);
+            text-decoration: none;
+            transition: all ease 0.3s;
+      }
+
+      a:hover {
+            color: var(--color_main);
+      }
+}

@@ -1,36 +1,44 @@
 {
       "compilerOptions": {
             "target": "esnext",
-            "module": "esnext",
+            "lib": [
+                  "dom",
+                  "dom.iterable",
+                  "esnext",
+                  "es5"
+            ],
+            "allowJs": true,
+            "allowSyntheticDefaultImports": true,
+            "preserveConstEnums": true,
             "moduleResolution": "node",
-            "resolveJsonModule":true,
-            "importHelpers": true,
-            "jsx": "react",
+            "skipLibCheck": true,
+            "noUnusedLocals": true,
+            "noUnusedParameters": false,
+            "strict": false,
+            "forceConsistentCasingInFileNames": true,
+            "noEmit": true,
             "esModuleInterop": true,
+            "module": "esnext",
+            "resolveJsonModule": true,
+            "emitDecoratorMetadata": true,
+            "experimentalDecorators": true,
             "sourceMap": true,
-            "baseUrl": "./",
-            "strict": true,
+            "jsx": "preserve",
+            "baseUrl": ".",
             "paths": {
-                  "@root/*": [
-                        "./*"
-                  ],
                   "@/*": [
-                        "src/*"
-                  ],
-                  "@@/*": [
-                        "src/.umi/*"
+                        "./*"
                   ]
             },
-            "allowSyntheticDefaultImports": true
+            "isolatedModules": true
       },
       "include": [
-            "mock/**/*",
-            "src/**/*",
-            "config/**/*",
-            ".umirc.ts",
-            "typings/typings.d.ts"
+            "next-env.d.ts",
+            "**/*.ts",
+            "**/*.tsx"
       ],
       "exclude": [
-            "./node_modules/*"
+            "./node_modules/*",
+            "./.next/*"
       ]
 }

@@ -1,0 +1,19 @@
+.backdrop_blur_white {
+      background-color: white;
+
+      @supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
+            background-color: rgba(255, 255, 255, 0.6);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+      }
+}
+
+.backdrop_blur_black {
+      background-color: white;
+
+      @supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
+            background-color: rgba(0, 0, 0, 0.6);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+      }
+}
