@@ -14,7 +14,10 @@ const NavLink: React.FC<IProps> = props => {
 
 	return (
 		<Link as={as} href={to}>
-			<a className={router.pathname === to ? 'active_link ' + className : className}>
+			<a
+				className={router.pathname === to ? 'active_link ' + className : className}
+				rel='nofollow'
+			>
 				{children}
 			</a>
 		</Link>

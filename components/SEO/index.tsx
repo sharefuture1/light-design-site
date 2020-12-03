@@ -29,7 +29,7 @@ const Index = () => {
 			<meta name='description' content='Light Design - 遵循自然之道的次世代 UI 设计语言和用户体验解决方案' />
 			<meta
 				name='keywords'
-				content='lightd,light design,组件,组件库,小程序组件,小程序,微信,微信小程序,小程序开发,小程序入门,小程序入门教程,wxapp,weapp,miniprogram'
+				content='lightd,light design,Light Design,组件,组件库,小程序组件,小程序,微信,微信小程序,小程序开发,小程序入门,小程序入门教程,wxapp,weapp,miniprogram,js,javascript,es5,es6,component,vue,vuejs,angular,react,reactjs,next,nextjs,css,html,编程,编程入门,代码,写代码'
 			/>
 			<meta content={logo} />
 		</Head>
