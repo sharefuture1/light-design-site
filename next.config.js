@@ -1,8 +1,8 @@
 const withPlugins = require('next-compose-plugins')
 const withAntdLess = require('next-antd-aza-less')
-const { modifyVars, handleAntd } = require('./utils/build/use_antd')
-const { handleMarkdown } = require('./utils/build/use_md')
-const { handleOptimize } = require('./utils/build/use_optimize')
+const { modifyVars, handleAntd } = require('./config/build/use_antd')
+const { handleMarkdown } = require('./config/build/use_md')
+const { handleOptimize } = require('./config/build/use_optimize')
 
 const config = {
 	cssModules: true,

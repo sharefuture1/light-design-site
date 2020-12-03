@@ -11,8 +11,6 @@ interface IProps {
 }
 
 const Index :NextPage<IProps> = ({menu_items}) => {
-      console.log(menu_items)
-
 	return (
 		<div className={`${styles._local} w_100 border_box flex flex_column`}>
 			{_menu_items.map(item => (

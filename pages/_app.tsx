@@ -1,8 +1,8 @@
-import Head from 'next/head'
 import { AppProps } from 'next/app'
 import Layout from '@/layout'
 import Antd from '@/components/Antd'
 import Dva from '@/components/Dva'
+import SEO from '@/components/SEO'
 import useProgress from '@/hooks/use_progress'
 import '@/styles/global.less'
 
@@ -13,9 +13,7 @@ const Index = ({ Component, pageProps }: AppProps) => {
 		<Antd>
 			<Dva>
 				<Layout>
-					<Head>
-						<title>Light Design</title>
-					</Head>
+					<SEO />
 					<Component {...pageProps} />
 				</Layout>
 			</Dva>
