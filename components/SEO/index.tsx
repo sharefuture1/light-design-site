@@ -9,8 +9,10 @@ const Index = () => {
 			<meta charSet='utf-8' />
 			<meta name='renderer' content='webkit' />
 			<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' />
-			<meta name='viewport' content='width=device-width, initial-scale=1' />
-
+                  <meta name='viewport' content='width=device-width, initial-scale=1' />
+                  
+                  <meta name="baidu-site-verification" content="code-0E3w1AJ7h6" />
+                  
 			<meta property='twitter:site' content='@light_design' />
 			<meta name='twitter:image' content={logo} />
 
