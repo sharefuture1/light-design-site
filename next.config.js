@@ -19,12 +19,6 @@ const config = {
 		javascriptEnabled: true,
 		modifyVars: modifyVars
 	},
-	experimental: {
-		workerThreads: true,
-		optimizeFonts: true,
-		optimizeImages: true,
-		optimizeCss: true
-	},
 	webpack: (config, { isServer }) => {
 		handleAntd(config, isServer)
 		handleMarkdown(config)
