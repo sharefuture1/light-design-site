@@ -4,6 +4,7 @@ import Menu from './component/Menu'
 import Options from './component/Options'
 import Header from './component/Header'
 import Simulator from './component/Simulator'
+import { IPackageJson } from '@/@types/global.interface'
 import styles from './index.less'
 
 interface IProps {
@@ -12,6 +13,7 @@ interface IProps {
 	children: React.ReactNode
 	fold_menu: boolean
 	fold_simulator: boolean
+	package_json: IPackageJson
 }
 
 const Index = (props: IProps) => {
@@ -20,11 +22,13 @@ const Index = (props: IProps) => {
 		changeSimulatorFoldStatus,
 		children,
 		fold_menu,
-		fold_simulator
+		fold_simulator,
+		package_json
 	} = props
+	const { name, component } = package_json
 	const [ state_visible_header, setStateVisibleHeader ] = useState(false)
 	const { pathname } = useRouter()
-	const pathnames = pathname.split('/')
+      const pathnames = pathname.split('/')
 
 	useEffect(
 		() => {
@@ -47,8 +51,13 @@ const Index = (props: IProps) => {
 	}
 
 	const props_simulator = {
-            fold: fold_simulator,
-		component_name: pathnames[3]
+		fold: fold_simulator,
+		component,
+		name
+	}
+
+	const props_header = {
+		...package_json
 	}
 
 	return (
@@ -63,7 +72,7 @@ const Index = (props: IProps) => {
 			>
 				<div className='content w_100 border_box flex flex_column'>
 					<Options {...props_options} />
-					{state_visible_header && <Header />}
+					{state_visible_header && <Header {...props_header} />}
 					{children}
 				</div>
 			</div>

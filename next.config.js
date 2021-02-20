@@ -13,7 +13,7 @@ const config = {
 	},
 	cssLoaderOptions: {
 		importLoaders: 1,
-		localIdentName: '[hash:base64:4]'
+		localIdentName: '[hash:base64:3]'
 	},
 	lessLoaderOptions: {
 		javascriptEnabled: true,

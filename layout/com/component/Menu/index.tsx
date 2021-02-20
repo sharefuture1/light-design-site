@@ -1,15 +1,19 @@
 import { memo } from 'react'
-import NavLink from '@/components/NavLink'
+import { connect } from 'react-redux'
+import { If, Then } from 'react-if'
 import { AppstoreOutlined } from '@ant-design/icons'
+import NavLink from '@/components/NavLink'
+import { IAppModelState } from '@/models/app'
+import { IMenuItems } from '@/@types/global.interface'
 import styles from './index.less'
-import menu_items from '@/data/menu_items'
 
 interface IProps {
 	fold: boolean
+	menu_items: Array<IMenuItems>
 }
 
 const Index = (props: IProps) => {
-	const { fold } = props
+	const { fold, menu_items } = props
 
 	return (
 		<div
@@ -25,34 +29,51 @@ const Index = (props: IProps) => {
 			</NavLink>
 			<div className='menu_items flex flex_column'>
 				{menu_items.map(item => (
-					<div className='menu_item flex flex_column' key={item.name}>
-						<NavLink
-							className='title cursor_point'
-							to={`/com/${item.path}`}
-						>
-							<span>{item.name}</span>
-						</NavLink>
-						<div className='components flex flex_column'>
-							{item.components.map(it => (
+					<If condition={item.active}>
+						<Then>
+							<div
+								className='menu_item flex flex_column'
+								key={item.name}
+							>
 								<NavLink
-									className='component flex align_end relative'
-									to={`/com/${item.path}/${it.path
-										? it.path
-										: it.name}`}
-									key={it.name}
+									className='title cursor_point'
+									to={`/com/${item.path}`}
 								>
-									<span className='name'>{it.name}</span>
-									<span className='description'>
-										{it.description}
-									</span>
+									<span>{item.name}</span>
 								</NavLink>
-							))}
-						</div>
-					</div>
+								<div className='components flex flex_column'>
+									{item.components.map(it => (
+										<If condition={it.active}>
+											<Then>
+												<NavLink
+													className='component flex align_end relative'
+													to={`/com/${item.path}/${it.path
+														? it.path
+														: it.name}`}
+													key={it.name}
+												>
+													<span className='name'>
+														{it.name}
+													</span>
+													<span className='description'>
+														{it.description}
+													</span>
+												</NavLink>
+											</Then>
+										</If>
+									))}
+								</div>
+							</div>
+						</Then>
+					</If>
 				))}
 			</div>
 		</div>
 	)
 }
 
-export default memo(Index)
+const getData = ({ app: { menu_items } }: { app: IAppModelState }) => ({
+	menu_items
+})
+
+export default memo(connect(getData)(Index))
