@@ -40,7 +40,8 @@ const Index = (props: IProps) => {
 	)
 
 	const props_menu = {
-		fold: fold_menu
+            fold: fold_menu,
+            component
 	}
 
 	const props_options = {

@@ -29,7 +29,7 @@ const Index: NextPage<IProps> = props => {
 			dispatch({
 				type: 'app/updateState',
 				payload: { package_json }
-                  })
+			})
 		},
 		[ component ]
 	)
@@ -50,9 +50,7 @@ export const getServerSideProps = async ({ query: { component } }: NextPageConte
 	const package_json = await request.get(`/coms/getPackageJson/${component}`)
 	const source = await renderToString(readme, { components })
 
-	const name = package_json.name.replace('@matrixage/lightd-', '')
-
-	package_json.component = name.slice(0, 1).toUpperCase() + name.slice(1)
+	package_json.component = component
 
 	return { props: { component, source, package_json } }
 }

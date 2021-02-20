@@ -9,11 +9,12 @@ import styles from './index.less'
 
 interface IProps {
 	fold: boolean
+	component: string
 	menu_items: Array<IMenuItems>
 }
 
 const Index = (props: IProps) => {
-	const { fold, menu_items } = props
+	const { fold, component, menu_items } = props
 
 	return (
 		<div
@@ -52,7 +53,15 @@ const Index = (props: IProps) => {
 														: it.name}`}
 													key={it.name}
 												>
-													<span className='name'>
+													<span
+														className={`
+                                                                                    ${component ===
+														it.name
+															? 'active'
+															: ''} 
+                                                                                    name
+                                                                              `}
+													>
 														{it.name}
 													</span>
 													<span className='description'>

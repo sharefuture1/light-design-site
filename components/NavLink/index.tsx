@@ -6,17 +6,23 @@ interface IProps {
 	as?: string
 	className?: string
 	prefetch?: boolean
+	target?: string
+	disabled?: boolean
 }
 
 const NavLink: React.FC<IProps> = props => {
-	const { children, to, as, className } = props
+	const { children, to, as, className, target, disabled } = props
 	const router = useRouter()
 
 	return (
 		<Link as={as} href={to}>
 			<a
-				className={router.pathname === to ? 'active_link ' + className : className}
-				rel='nofollow'
+                        className={ `
+                              ${router.pathname === to ? 'active_link ' + className : className}
+                              ${disabled?'disabled':''}
+                        `}
+				rel='nofollow noopener noreferrer'
+				target={target}
 			>
 				{children}
 			</a>

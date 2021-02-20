@@ -1,26 +1,33 @@
-
 import NavLink from '@/components/NavLink'
 import Logo from '@/components/Logo'
 import MatrixAge from '@/components/MatrixAge'
 import styles from './index.less'
 
 const Index = () => {
-	const nav_items: Array<{ name: string; path: string }> = [
+	const nav_items: Array<{
+		name: string
+		path: string
+		target?: string
+		disabled?: boolean
+	}> = [
 		{
 			name: '组件',
 			path: '/com'
 		},
 		{
 			name: '文档',
-			path: '/'
+			path: '/',
+			disabled: true
 		},
 		{
 			name: '白皮书',
-			path: '/'
+			path: '/',
+			disabled: true
 		},
 		{
 			name: 'Github',
-			path: '/'
+			path: '/',
+			target: '_blank'
 		}
 	]
 
@@ -36,8 +43,14 @@ const Index = () => {
 					<Logo />
 				</NavLink>
 				<div className='nav_items w_100 h_100 border_box flex justify_center align_center'>
-					{nav_items.map((item) => (
-						<NavLink className='nav_item border_box flex justify_center align_center' to={item.path} key={item.name}>
+					{nav_items.map(item => (
+						<NavLink
+							className='nav_item border_box flex justify_center align_center'
+							to={item.path}
+							key={item.name}
+							target={item.target}
+							disabled={item.disabled}
+						>
 							{item.name}
 						</NavLink>
 					))}

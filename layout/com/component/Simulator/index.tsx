@@ -1,5 +1,6 @@
 import { memo, useState } from 'react'
 import { useRouter } from 'next/router'
+import Image from 'next/image'
 import { Modal, Radio, Tooltip } from 'antd'
 import { DownloadOutlined } from '@ant-design/icons'
 import { If, Then } from 'react-if'
@@ -27,7 +28,7 @@ const Index = (props: IProps) => {
 		const file_type = state_download_type === 'ts' ? 'es6' : 'es5'
 
 		location.href = `${base_url}/coms/downloadCom/${component}?file_type=${file_type}`
-      }
+	}
 
 	return (
 		<div
@@ -37,8 +38,14 @@ const Index = (props: IProps) => {
                         h_100vh border_box flex flex_column justify_center fixed top_0 right_0 
                   `}
 		>
-			<div className='simulator w_100 h_100 border_box'>
-				<iframe className='iframe w_100' src='' frameBorder='0' />
+			<div className='simulator w_100 h_100 border_box flex flex_column justify_center align_center'>
+				<Image
+					width='150px'
+					height='150px'
+					src='/images/img_wxapp_code.jpg'
+					alt='img_wxapp_code'
+				/>
+				{/* <iframe className='iframe w_100' src='' frameBorder='0' /> */}
 			</div>
 			<NavLink
 				className='logo w_100 border_box flex justify_center align_center'

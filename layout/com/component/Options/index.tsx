@@ -3,8 +3,8 @@ import NavLink from '@/components/NavLink'
 import { Tooltip } from 'antd'
 import {
 	HomeOutlined,
-	FileSearchOutlined,
 	ReadOutlined,
+	BookOutlined,
 	GithubOutlined,
 	UnorderedListOutlined,
 	CloseOutlined,
@@ -65,17 +65,7 @@ const Index = (props: IProps) => {
 						</NavLink>
 					</div>
 				</Tooltip>
-				<Tooltip title='文档' placement='left'>
-					<div>
-						<NavLink
-							className='option_item option_wrap border_box flex justify_center align_center use_hover'
-							to='/'
-						>
-							<FileSearchOutlined />
-						</NavLink>
-					</div>
-				</Tooltip>
-				<Tooltip title='白皮书' placement='left'>
+				{/* <Tooltip title='文档' placement='left'>
 					<div>
 						<NavLink
 							className='option_item option_wrap border_box flex justify_center align_center use_hover'
@@ -85,11 +75,22 @@ const Index = (props: IProps) => {
 						</NavLink>
 					</div>
 				</Tooltip>
-				<Tooltip title='Github' placement='left'>
+				<Tooltip title='白皮书' placement='left'>
 					<div>
 						<NavLink
 							className='option_item option_wrap border_box flex justify_center align_center use_hover'
 							to='/'
+						>
+							<BookOutlined />
+						</NavLink>
+					</div>
+				</Tooltip> */}
+				<Tooltip title='Github' placement='left'>
+					<div>
+						<NavLink
+							className='option_item option_wrap border_box flex justify_center align_center use_hover'
+							to='https://github.com/MatrixAges/light-design'
+							target='_blank'
 						>
 							<GithubOutlined />
 						</NavLink>
