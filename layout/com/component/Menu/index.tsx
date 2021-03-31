@@ -4,6 +4,7 @@ import { If, Then } from 'react-if'
 import { AppstoreOutlined } from '@ant-design/icons'
 import NavLink from '@/components/NavLink'
 import { IAppModelState } from '@/models/app'
+import useSubscriptions from '@/hooks/use_subscriptions'
 import { IMenuItems } from '@/@types/global.interface'
 import styles from './index.less'
 
@@ -14,8 +15,9 @@ interface IProps {
 }
 
 const Index = (props: IProps) => {
-      const { fold, component, menu_items } = props
-      
+	const { fold, component, menu_items } = props
+	const app_menu_items = useSubscriptions(menu_items, [])
+
 	return (
 		<div
 			className={`
@@ -29,7 +31,7 @@ const Index = (props: IProps) => {
 				<span className='ml_10'>所有组件</span>
 			</NavLink>
 			<div className='menu_items flex flex_column'>
-				{menu_items.map(item => (
+				{app_menu_items.map(item => (
 					<If condition={item.active} key={item.name}>
 						<Then>
 							<div className='menu_item flex flex_column'>

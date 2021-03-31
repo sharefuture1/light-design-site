@@ -21,15 +21,7 @@ const Index = <Model>{
 
 	subscriptions: {
 		setup ({ dispatch }) {
-			const timer = setInterval(() => {
-				try {
-					if (!process.browser) return
-
-					dispatch({ type: 'getMenuItems' })
-
-					clearInterval(timer)
-				} catch (_) {}
-			}, 10)
+			dispatch({ type: 'getMenuItems' })
 		}
 	},
 

@@ -4,6 +4,7 @@ import { If, Then } from 'react-if'
 import NavLink from '@/components/NavLink'
 import { connect } from 'react-redux'
 import { IAppModelState } from '@/models/app'
+import useSubscriptions from '@/hooks/use_subscriptions'
 import { IMenuItems, TDispatch } from '@/@types/global.interface'
 import styles from '@/layout/all/index.less'
 
@@ -13,9 +14,11 @@ interface IProps {
 }
 
 const Index: NextPage<IProps> = ({ menu_items }) => {
+	const app_menu_items = useSubscriptions(menu_items, [])
+
 	return (
 		<div className={`${styles._local} w_100 border_box flex flex_column`}>
-			{menu_items.map(item => (
+			{app_menu_items.map(item => (
 				<If condition={item.active} key={item.name}>
 					<Then>
 						<div className='menu_item flex flex_column'>
