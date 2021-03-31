@@ -6,6 +6,7 @@ import renderToString from 'next-mdx-remote/render-to-string'
 import hydrate from 'next-mdx-remote/hydrate'
 import CodeBlock from '@/components/CodeBlock'
 import Title from '@/components/mdx/Title'
+import Description from '@/components/mdx/Description'
 import request from '@/utils/use_request'
 import { PackageJson } from 'types-package-json'
 import { TDispatch } from '@/@types/global.interface'
@@ -20,7 +21,8 @@ interface IProps {
 
 const components = {
 	code: CodeBlock,
-	Title
+      Title,
+      Description
 }
 
 const Index: NextPage<IProps> = props => {

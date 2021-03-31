@@ -72,7 +72,7 @@ const Index = (props: IProps) => {
                         `}
 			>
 				<div className='content border_box flex flex_column'>
-					<Options {...props_options} />
+                              <Options { ...props_options } />
 					{state_visible_header && <Header {...props_header} />}
 					{children}
 				</div>

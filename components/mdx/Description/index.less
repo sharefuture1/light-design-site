@@ -1,5 +1,56 @@
-._local{
-      :global{
-            
+@color_success: #81C784;
+@color_warning: #FFB74D;
+@color_error: #E57373;
+
+._local {
+      padding: 18px 24px;
+      border-radius: 6px;
+      margin-top: 18px;
+      margin-bottom: 36px;
+      border: 1px solid whitesmoke;
+
+      &.default {
+            background-color: white;
+      }
+
+      .fn_not_default(@color) {
+            border: 1px solid fade(@color, 18%);
+
+            :global {
+                  .title {
+                        background-color: fade(@color, 9%);
+                        border: 1px solid fade(@color, 18%);
+                        backdrop-filter: blur(10px)
+                  }
+            }
+      }
+
+      &.success {
+            .fn_not_default(@color_success);
+      }
+
+      &.warning {
+            .fn_not_default(@color_warning);
+      }
+
+      &.error {
+            .fn_not_default(@color_error);
+      }
+
+      :global {
+            .title {
+                  top: -10px;
+                  height: 20px;
+                  padding: 0 9px;
+                  border-radius: 30px;
+                  font-size: 12px;
+                  line-height: 1;
+                  background-color: white;
+                  border: 1px solid whitesmoke;
+            }
+
+            .text {
+                  font-size: 13px;
+            }
       }
 }
