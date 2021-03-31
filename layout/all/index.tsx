@@ -7,9 +7,9 @@ const Index = ({ menu_items }: { menu_items: Array<IMenuItems> }) => {
 	return (
 		<div className={`${styles._local} w_100 border_box flex flex_column`}>
 			{menu_items.map(item => (
-				<If condition={item.active}>
+				<If condition={item.active} key={item.name}>
 					<Then>
-						<div className='menu_item flex flex_column' key={item.name}>
+						<div className='menu_item flex flex_column'>
 							<NavLink
 								className='title_wrap flex flex_column'
 								to={`/com/${item.path}`}
@@ -20,15 +20,14 @@ const Index = ({ menu_items }: { menu_items: Array<IMenuItems> }) => {
 								</span>
 							</NavLink>
 							<div className='components flex flex_wrap'>
-								{item.components.map((it,idx) => (
-									<If condition={it.active}>
+								{item.components.map((it, idx) => (
+									<If condition={it.active} key={idx}>
 										<Then>
 											<NavLink
 												className='component flex flex_column justify_center'
 												to={`/com/${item.path}/${it.path
 													? it.path
 													: it.name}`}
-												key={idx}
 											>
 												<span className='name'>
 													{it.name}

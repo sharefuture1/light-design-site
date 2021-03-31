@@ -2,6 +2,7 @@ import { memo, Fragment } from 'react'
 import { useRouter } from 'next/router'
 import { connect } from 'react-redux'
 import { IAppModelState } from '@/models/app'
+import useSubscriptions from '@/hooks/use_subscriptions'
 import { IMenuItems } from '@/@types/global.interface'
 import All from '@/layout/all'
 
@@ -11,9 +12,11 @@ interface IProps {
 
 const Index = ({ menu_items }: IProps) => {
 	const { query: { group } } = useRouter()
-	const index = menu_items.findIndex(item => item.path === group)
+	const app_menu_items = useSubscriptions(menu_items, [])
 
-	return index >= 0 ? <All menu_items={[ menu_items[index] ]} /> : <Fragment />
+	const index = app_menu_items.findIndex(item => item.path === group)
+
+	return index >= 0 ? <All menu_items={[ app_menu_items[index] ]} /> : <Fragment />
 }
 
 const getData = ({ app: { menu_items } }: { app: IAppModelState }) => ({
