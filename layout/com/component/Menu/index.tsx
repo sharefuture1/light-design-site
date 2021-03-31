@@ -14,8 +14,8 @@ interface IProps {
 }
 
 const Index = (props: IProps) => {
-	const { fold, component, menu_items } = props
-
+      const { fold, component, menu_items } = props
+      
 	return (
 		<div
 			className={`
@@ -30,12 +30,9 @@ const Index = (props: IProps) => {
 			</NavLink>
 			<div className='menu_items flex flex_column'>
 				{menu_items.map(item => (
-					<If condition={item.active}>
+					<If condition={item.active} key={item.name}>
 						<Then>
-							<div
-								className='menu_item flex flex_column'
-								key={item.name}
-							>
+							<div className='menu_item flex flex_column'>
 								<NavLink
 									className='title cursor_point'
 									to={`/com/${item.path}`}
@@ -44,14 +41,13 @@ const Index = (props: IProps) => {
 								</NavLink>
 								<div className='components flex flex_column'>
 									{item.components.map(it => (
-										<If condition={it.active}>
+										<If condition={it.active} key={it.name}>
 											<Then>
 												<NavLink
 													className='component flex align_end relative'
 													to={`/com/${item.path}/${it.path
 														? it.path
 														: it.name}`}
-													key={it.name}
 												>
 													<span
 														className={`

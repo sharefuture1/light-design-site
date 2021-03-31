@@ -20,7 +20,7 @@ const Index = ({ menu_items }: { menu_items: Array<IMenuItems> }) => {
 								</span>
 							</NavLink>
 							<div className='components flex flex_wrap'>
-								{item.components.map(it => (
+								{item.components.map((it,idx) => (
 									<If condition={it.active}>
 										<Then>
 											<NavLink
@@ -28,7 +28,7 @@ const Index = ({ menu_items }: { menu_items: Array<IMenuItems> }) => {
 												to={`/com/${item.path}/${it.path
 													? it.path
 													: it.name}`}
-												key={it.name}
+												key={idx}
 											>
 												<span className='name'>
 													{it.name}

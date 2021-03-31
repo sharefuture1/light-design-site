@@ -1,5 +1,4 @@
 import { memo } from 'react'
-import { Switch, Case } from 'react-if'
 import { connect } from 'react-redux'
 import { useRouter } from 'next/router'
 import { IAppModelState } from '@/models/app'
@@ -7,7 +6,8 @@ import Com from './com'
 
 const Index: any = (props: any) => {
 	const { dispatch, children, fold_menu, fold_simulator, package_json } = props
-	const { pathname } = useRouter()
+	const router = useRouter()
+	const { pathname } = router
 	const pathnames = pathname.split('/')
 
 	const props_com = {
@@ -29,21 +29,11 @@ const Index: any = (props: any) => {
 	}
 
 	if (pathnames[1] === 'com') {
-		return (
-			<Com {...props_com}>
-				<Switch>
-					<Case
-						condition={
-							pathnames.length === 2 ||
-							pathnames.length === 3 ||
-							pathnames.length === 4
-						}
-					>
-						{children}
-					</Case>
-				</Switch>
-			</Com>
-		)
+		if (pathnames.length === 2 || pathnames.length === 3 || pathnames.length === 4) {
+			return <Com {...props_com}>{children}</Com>
+		} else {
+			router.push('/404')
+		}
 	}
 
 	return children

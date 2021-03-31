@@ -1,3 +1,4 @@
+import { Model } from '@/@types/dva.interface'
 import { IMenuItems, IPackageJson } from '@/@types/global.interface'
 import { Service_getMenuItems } from '@/services/app'
 
@@ -8,7 +9,7 @@ export interface IAppModelState {
 	package_json: IPackageJson
 }
 
-const Index = {
+const Index = <Model>{
 	namespace: 'app',
 
 	state: <IAppModelState>{
@@ -20,7 +21,15 @@ const Index = {
 
 	subscriptions: {
 		setup ({ dispatch }) {
-			dispatch({ type: 'getMenuItems' })
+			const timer = setInterval(() => {
+				try {
+					if (!process.browser) return
+
+					dispatch({ type: 'getMenuItems' })
+
+					clearInterval(timer)
+				} catch (_) {}
+			}, 10)
 		}
 	},
 

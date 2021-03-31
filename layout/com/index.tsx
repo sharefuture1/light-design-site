@@ -68,10 +68,10 @@ const Index = (props: IProps) => {
 				className={`
                               ${fold_menu ? 'fold_menu' : ''} 
                               ${fold_simulator ? 'fold_simulator' : ''} 
-                              content_wrap w_100 border_box
+                              content_wrap w_100 border_box flex justify_center
                         `}
 			>
-				<div className='content w_100 border_box flex flex_column'>
+				<div className='content border_box flex flex_column'>
 					<Options {...props_options} />
 					{state_visible_header && <Header {...props_header} />}
 					{children}
