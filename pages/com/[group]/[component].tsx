@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import renderToString from 'next-mdx-remote/render-to-string'
 import hydrate from 'next-mdx-remote/hydrate'
 import CodeBlock from '@/components/CodeBlock'
+import Text from '@/components/mdx/Text'
 import Title from '@/components/mdx/Title'
 import Description from '@/components/mdx/Description'
 import request from '@/utils/use_request'
@@ -21,8 +22,9 @@ interface IProps {
 
 const components = {
 	code: CodeBlock,
-      Title,
-      Description
+	Text,
+	Title,
+	Description
 }
 
 const Index: NextPage<IProps> = props => {

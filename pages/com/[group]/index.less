@@ -17,18 +17,13 @@
 
                   th,
                   td {
-                        padding: 16px 10px;
+                        padding: 16px 0;
                         border-bottom: 1px solid var(--color_border);
                         font-size: 13px;
+                        text-align: left;
 
-                        &:nth-of-type(1) {
-                              width: 120px;
-                              padding-left: 0;
-                        }
-
-                        &:nth-of-type(3),
-                        &:nth-of-type(6) {
-                              width: 120px;
+                        &:nth-last-child(1) {
+                              text-align: right;
                         }
                   }
 
@@ -70,8 +65,19 @@
 
             ol,
             ul {
-                  padding-left: 2em;
-                  margin-top: 10px;
+                  padding-left: 18px;
+                  margin-top: 15px;
+                  margin-bottom: 0;
+
+                  li{
+                        margin-bottom: 9px;
+                        list-style-type: circle;
+                        font-size: 13px;
+
+                        &:last-child{
+                              margin-bottom: 0;
+                        }
+                  }
             }
 
             pre {
@@ -92,7 +98,7 @@
                   cursor: pointer;
                   overflow: scroll;
 
-                  .token-line:last-child{
+                  .token-line:last-child {
                         display: none;
                   }
             }

@@ -7,22 +7,17 @@
       border-radius: 6px;
       margin-top: 18px;
       margin-bottom: 36px;
-      border: 1px solid whitesmoke;
+      font-size: 13px;
+      box-shadow: 0 0 30px #eee;
 
       &.default {
+            border-left: 3px solid black;
             background-color: white;
       }
 
       .fn_not_default(@color) {
-            border: 1px solid fade(@color, 18%);
-
-            :global {
-                  .title {
-                        background-color: fade(@color, 9%);
-                        border: 1px solid fade(@color, 18%);
-                        backdrop-filter: blur(10px)
-                  }
-            }
+            border-left: 3px solid fade(@color, 100%);
+            background-color: fade(@color, 9%);
       }
 
       &.success {
@@ -35,22 +30,5 @@
 
       &.error {
             .fn_not_default(@color_error);
-      }
-
-      :global {
-            .title {
-                  top: -10px;
-                  height: 20px;
-                  padding: 0 9px;
-                  border-radius: 30px;
-                  font-size: 12px;
-                  line-height: 1;
-                  background-color: white;
-                  border: 1px solid whitesmoke;
-            }
-
-            .text {
-                  font-size: 13px;
-            }
       }
 }
