@@ -29,7 +29,13 @@ const components = {
 
 const Index: NextPage<IProps> = props => {
 	const { dispatch, component, source, package_json } = props
-      
+
+	useEffect(() => {
+		const h3 = document.getElementsByTagName('h3')
+
+		console.log(h3)
+	}, [])
+
 	useEffect(
 		() => {
 			dispatch({
