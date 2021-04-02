@@ -29,7 +29,7 @@ const components = {
 
 const Index: NextPage<IProps> = props => {
 	const { dispatch, component, source, package_json } = props
-
+      
 	useEffect(
 		() => {
 			dispatch({

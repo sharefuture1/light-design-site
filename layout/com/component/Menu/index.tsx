@@ -23,7 +23,7 @@ const Index = (props: IProps) => {
 			className={`
                         ${styles._local} 
                         ${fold ? styles.fold : ''} 
-                        h_100vh border_box flex flex_column fixed top_0 left_0
+                        h_100vh border_box flex flex_column fixed top_0 left_0 transition_normal
                   `}
 		>
 			<NavLink className='preview flex align_center' to='/com'>

@@ -1,3 +1,4 @@
+import store from 'store'
 import { Model } from '@/@types/dva.interface'
 import { IMenuItems, IPackageJson } from '@/@types/global.interface'
 import { Service_getMenuItems } from '@/services/app'
@@ -22,6 +23,17 @@ const Index = <Model>{
 	subscriptions: {
 		setup ({ dispatch }) {
 			dispatch({ type: 'getMenuItems' })
+
+			const fold_menu = store.get('fold_menu')
+			const fold_simulator = store.get('fold_simulator')
+
+			dispatch({
+				type: 'updateState',
+				payload: {
+					fold_menu: fold_menu ? fold_menu : false,
+					fold_simulator: fold_simulator ? fold_simulator : false
+				}
+			})
 		}
 	},
 

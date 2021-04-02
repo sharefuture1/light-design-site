@@ -3,8 +3,6 @@ import NavLink from '@/components/NavLink'
 import { Tooltip } from 'antd'
 import {
 	HomeOutlined,
-	ReadOutlined,
-	BookOutlined,
 	GithubOutlined,
 	UnorderedListOutlined,
 	CloseOutlined,
@@ -23,11 +21,11 @@ interface IProps {
 
 const Index = (props: IProps) => {
 	const { changeMenuFoldStatus, changeSimulatorFoldStatus, fold_menu, fold_simulator } = props
-	const [ state_visible_options, setStateVisibleOptions ] = useState(false)
-
+      const [ state_visible_options, setStateVisibleOptions ] = useState(false)
+      
 	return (
 		<div
-			className={`
+                  className={ `
                         ${styles._local} 
                         ${fold_simulator ? styles.fold_simulator : ''} 
                         border_box flex flex_column fixed

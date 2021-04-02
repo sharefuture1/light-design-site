@@ -1,4 +1,5 @@
 ._local {
+      height: 90px;
       padding: 0 36px;
       padding-top: 18px;
 
@@ -6,17 +7,24 @@
             .name_wrap {
                   margin-bottom: 12px;
 
-                  &:hover {
-                        background-clip: text;
-                        -webkit-background-clip: text;
-                        -webkit-text-fill-color: transparent;
-                        background-image: var(--color_text_colored);
-                  }
-
                   .name {
                         font-size: 24px;
                         line-height: 1;
                         margin-right: 12px;
+
+                        &:hover {
+                              background-clip: text;
+                              -webkit-background-clip: text;
+                              -webkit-text-fill-color: transparent;
+                              background-image: var(--color_text_colored);
+                        }
+
+                        .icon_link{
+                              top: -6px;
+                              right: -24px;
+                              width: 15px;
+                              opacity: 0.2;
+                        }
                   }
             }
 

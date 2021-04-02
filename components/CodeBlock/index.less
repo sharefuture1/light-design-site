@@ -1,0 +1,44 @@
+._local {
+      &:hover {
+            :global {
+                  .btn_copy {
+                        opacity: 1;
+                  }
+            }
+      }
+
+      :global {
+            .btn_copy {
+                  top: 12px;
+                  right: 12px;
+                  width: 24px;
+                  height: 24px;
+                  border-radius: 6px;
+                  font-size: 12px;
+                  color: white;
+                  cursor: pointer;
+                  background-color: transparent;
+                  border: 1px solid #666;
+                  opacity: 0;
+                  outline: none;
+
+                  &:hover{
+                        transform: scale(1);
+                  }
+
+                  &:active{
+                        transform: scale(0.8);
+                  }
+            }
+      }
+}
+
+.line_number {
+      display: inline-block;
+      text-align: right;
+      width: 40px;
+      padding-right: 10px;
+      margin-right: 10px;
+      color: rgba(170, 170, 170, 0.6);
+      border-right: 1px solid rgba(170, 170, 170, 0.3);
+}

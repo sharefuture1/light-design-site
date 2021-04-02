@@ -16,5 +16,6 @@ export interface IMenuItems {
 }
 
 export interface IPackageJson extends PackageJson {
-	component: string
+      component: string
+	cname: string
 }

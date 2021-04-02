@@ -28,14 +28,14 @@ const Index = (props: IProps) => {
 		const file_type = state_download_type === 'ts' ? 'es6' : 'es5'
 
 		location.href = `${base_url}/coms/downloadCom/${component}?file_type=${file_type}`
-	}
-
+      }
+      
 	return (
 		<div
 			className={`
                         ${styles._local} 
                         ${fold ? styles.fold : ''} 
-                        h_100vh border_box flex flex_column justify_center fixed top_0 right_0 
+                        h_100vh border_box flex flex_column justify_center fixed top_0 right_0 transition_normal
                   `}
 		>
 			<div className='simulator w_100 h_100 border_box flex flex_column justify_center align_center'>
