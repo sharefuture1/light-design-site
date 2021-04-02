@@ -30,17 +30,18 @@ const components = {
 const Index: NextPage<IProps> = props => {
 	const { dispatch, component, source, package_json } = props
 
-	useEffect(() => {
-		const h3 = document.getElementsByTagName('h3')
-
-		console.log(h3)
-	}, [])
-
 	useEffect(
 		() => {
+			const h3 = Array.from(document.getElementsByTagName('h3'))
+			const anchors = h3.reduce((total, item: HTMLHeadingElement) => {
+				total.push(item.innerText)
+
+				return total
+                  }, [])
+
 			dispatch({
 				type: 'app/updateState',
-				payload: { package_json }
+				payload: { package_json, anchors }
 			})
 		},
 		[ component ]

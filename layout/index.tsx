@@ -1,4 +1,4 @@
-import { memo } from 'react'
+import { memo, ReactElement } from 'react'
 import { connect } from 'react-redux'
 import { useRouter } from 'next/router'
 import store from 'store'
@@ -6,8 +6,13 @@ import useSubscriptions from '@/hooks/use_subscriptions'
 import { IAppModelState } from '@/models/app'
 import Com from './com'
 
-const Index: any = (props: any) => {
-	const { dispatch, children, fold_menu, fold_simulator, package_json } = props
+interface IProps extends IAppModelState {
+	dispatch: (params: any) => void
+	children: ReactElement
+}
+
+const Index = (props: IProps) => {
+	const { dispatch, children, fold_menu, fold_simulator, package_json, anchors } = props
 	const app_fold_menu = useSubscriptions(fold_menu, false)
 	const app_fold_simulator = useSubscriptions(fold_simulator, false)
 	const router = useRouter()
@@ -18,6 +23,7 @@ const Index: any = (props: any) => {
 		fold_menu: app_fold_menu,
 		fold_simulator: app_fold_simulator,
 		package_json,
+		anchors,
 		changeMenuFoldStatus () {
 			dispatch({
 				type: 'app/updateState',
@@ -48,13 +54,14 @@ const Index: any = (props: any) => {
 }
 
 const getData = ({
-	app: { fold_menu, fold_simulator, package_json }
+	app: { fold_menu, fold_simulator, package_json, anchors }
 }: {
 	app: IAppModelState
 }) => ({
 	fold_menu,
 	fold_simulator,
-	package_json
+	package_json,
+	anchors
 })
 
 export default memo(connect(getData)(Index))

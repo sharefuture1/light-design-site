@@ -8,6 +8,7 @@ export interface IAppModelState {
 	fold_simulator: boolean
 	menu_items: Array<IMenuItems>
 	package_json: IPackageJson
+	anchors: Array<string>
 }
 
 const Index = <Model>{
@@ -17,7 +18,8 @@ const Index = <Model>{
 		fold_menu: false,
 		fold_simulator: false,
 		package_json: {},
-		menu_items: []
+            menu_items: [],
+            anchors:[]
 	},
 
 	subscriptions: {

@@ -1,6 +1,7 @@
 import { memo, useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Menu from './component/Menu'
+import Anchors from './component/Anchors'
 import Options from './component/Options'
 import Header from './component/Header'
 import Simulator from './component/Simulator'
@@ -14,6 +15,7 @@ interface IProps {
 	fold_menu: boolean
 	fold_simulator: boolean
 	package_json: IPackageJson
+	anchors: Array<string>
 }
 
 const Index = (props: IProps) => {
@@ -23,12 +25,13 @@ const Index = (props: IProps) => {
 		children,
 		fold_menu,
 		fold_simulator,
-		package_json
+		package_json,
+		anchors
 	} = props
 	const { name, component } = package_json
 	const [ state_visible_header, setStateVisibleHeader ] = useState(true)
 	const { pathname } = useRouter()
-      const pathnames = pathname.split('/')
+	const pathnames = pathname.split('/')
 
 	useEffect(
 		() => {
@@ -40,8 +43,12 @@ const Index = (props: IProps) => {
 	)
 
 	const props_menu = {
-            fold: fold_menu,
-            component
+		fold: fold_menu,
+		component
+      }
+      
+	const props_anchors = {
+		anchors
 	}
 
 	const props_options = {
@@ -72,7 +79,8 @@ const Index = (props: IProps) => {
                         `}
 			>
 				<div className='content border_box flex flex_column'>
-                              <Options { ...props_options } />
+					<Anchors {...props_anchors} />
+					<Options {...props_options} />
 					{state_visible_header && <Header {...props_header} />}
 					{children}
 				</div>
