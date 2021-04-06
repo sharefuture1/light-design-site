@@ -1,4 +1,10 @@
 :global {
+      ::-webkit-scrollbar {
+            display: none !important;
+      }
+
+      scrollbar-width: none;
+      -ms-overflow-style: none;
 
       html,
       body {
@@ -35,6 +41,7 @@
 
       a {
             text-decoration: none;
+            transition: all ease 0.3s;
 
             &:hover,
             &:active,

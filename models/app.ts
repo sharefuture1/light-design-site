@@ -6,9 +6,14 @@ import { Service_getMenuItems } from '@/services/app'
 export interface IAppModelState {
 	fold_menu: boolean
 	fold_simulator: boolean
+	fold_anchors: boolean
 	menu_items: Array<IMenuItems>
 	package_json: IPackageJson
-	anchors: Array<string>
+	anchors: Array<{
+		name: string
+		active: boolean
+		top: number
+	}>
 }
 
 const Index = <Model>{
@@ -17,9 +22,10 @@ const Index = <Model>{
 	state: <IAppModelState>{
 		fold_menu: false,
 		fold_simulator: false,
+		fold_anchors: true,
 		package_json: {},
-            menu_items: [],
-            anchors:[]
+		menu_items: [],
+		anchors: []
 	},
 
 	subscriptions: {
@@ -28,12 +34,14 @@ const Index = <Model>{
 
 			const fold_menu = store.get('fold_menu')
 			const fold_simulator = store.get('fold_simulator')
+			const fold_anchors = store.get('fold_anchors')
 
 			dispatch({
 				type: 'updateState',
 				payload: {
 					fold_menu: fold_menu ? fold_menu : false,
-					fold_simulator: fold_simulator ? fold_simulator : false
+					fold_simulator: fold_simulator ? fold_simulator : false,
+					fold_anchors: fold_anchors ? fold_anchors : false
 				}
 			})
 		}

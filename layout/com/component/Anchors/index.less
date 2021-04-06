@@ -2,11 +2,54 @@
       @size: 48px;
 
       bottom: 0;
-      left:270px;
-      width: calc(100% - 270px - 414px - @size);
+      left: 0;
+      z-index: 1;
+      overflow-y: scroll;
+      width: 100%;
       height: @size;
-      background-color: white;
-      z-index: 10;
+      padding-left: 270px;
+      padding-right: calc(414px + @size);
 
-      :global {}
+      &.fold_menu {
+            padding-left: 0;
+      }
+
+      &.fold_simulator {
+            padding-right: 0;
+      }
+
+      &.fold_anchors {
+            display: none;
+      }
+
+      :global {
+            .anchors_items {
+                  padding: 0 24px;
+                  background-color: fade(white, 90%);
+                  backdrop-filter: blur(3px);
+                  border-top: 1px solid var(--color_border);
+
+                  .anchor_item {
+                        font-size: 13px;
+                        color: var(--color_text_desc);
+                        white-space: nowrap;
+
+                        &:last-child {
+                              .next {
+                                    opacity: 0;
+                              }
+                        }
+
+                        .name {
+                              &.active {
+                                    color: black;
+                              }
+                        }
+
+                        .next {
+                              padding: 0 9px;
+                        }
+                  }
+            }
+      }
 }

@@ -1,5 +1,6 @@
 const withPlugins = require('next-compose-plugins')
 const withAntdLess = require('next-antd-aza-less')
+const withPWA = require('next-pwa')
 const { modifyVars, handleAntd } = require('./config/build/use_antd')
 const { handleMarkdown } = require('./config/build/use_md')
 const { handleOptimize } = require('./config/build/use_optimize')
@@ -19,6 +20,10 @@ const config = {
 		javascriptEnabled: true,
 		modifyVars: modifyVars
 	},
+	pwa: {
+		disable: process.env.NODE_ENV === 'development',
+		dest: 'public'
+	},
 	webpack: (config, { isServer }) => {
 		handleAntd(config, isServer)
 		handleMarkdown(config)
@@ -28,4 +33,4 @@ const config = {
 	}
 }
 
-module.exports = withPlugins([ withAntdLess ], config)
+module.exports = withPlugins([ withAntdLess, withPWA ], config)

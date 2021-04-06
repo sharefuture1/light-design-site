@@ -27,9 +27,15 @@
             }
       }
 
+      .ant-modal-mask{
+            background-color: rgba(0, 0, 0, 0.72);
+            backdrop-filter: blur(6px);
+      }
+
       .ant-modal {
             .ant-modal-content {
                   overflow: hidden;
+                  border-radius: 6px;
 
                   .ant-modal-header {
                         padding: 18px 24px;
@@ -100,13 +106,12 @@
                         padding: 0;
                         border-radius: 6px;
                         font-size: 13px;
-                        background-color: fade(white,72%);
+                        background-color: fade(white,100%);
 
                         .ant-message-custom-content {
                               padding: 12px 18px;
                               border-radius: 6px;
                               font-weight: bold;
-                              backdrop-filter: blur(9px);
 
                               .anticon {
                                     font-size: 15px;

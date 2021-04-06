@@ -6,25 +6,30 @@ import Options from './component/Options'
 import Header from './component/Header'
 import Simulator from './component/Simulator'
 import { IPackageJson } from '@/@types/global.interface'
+import { IAppModelState } from '@/models/app'
 import styles from './index.less'
 
 interface IProps {
-	changeMenuFoldStatus: () => void
-	changeSimulatorFoldStatus: () => void
+	changeMenuFoldStatus: (status?: boolean) => void
+	changeSimulatorFoldStatus: (status?: boolean) => void
+	changeAnchorsFoldStatus: (status?: boolean) => void
 	children: React.ReactNode
-	fold_menu: boolean
-	fold_simulator: boolean
+	fold_menu: IAppModelState['fold_menu']
+	fold_simulator: IAppModelState['fold_simulator']
+	fold_anchors: IAppModelState['fold_anchors']
 	package_json: IPackageJson
-	anchors: Array<string>
+	anchors: IAppModelState['anchors']
 }
 
 const Index = (props: IProps) => {
 	const {
 		changeMenuFoldStatus,
-		changeSimulatorFoldStatus,
+            changeSimulatorFoldStatus,
+            changeAnchorsFoldStatus,
 		children,
 		fold_menu,
-		fold_simulator,
+            fold_simulator,
+            fold_anchors,
 		package_json,
 		anchors
 	} = props
@@ -45,17 +50,22 @@ const Index = (props: IProps) => {
 	const props_menu = {
 		fold: fold_menu,
 		component
-      }
-      
+	}
+
 	const props_anchors = {
-		anchors
+		anchors,
+		fold_menu,
+            fold_simulator,
+            fold_anchors
 	}
 
 	const props_options = {
 		changeMenuFoldStatus,
-		changeSimulatorFoldStatus,
+            changeSimulatorFoldStatus,
+            changeAnchorsFoldStatus,
 		fold_menu,
-		fold_simulator
+            fold_simulator,
+            fold_anchors
 	}
 
 	const props_simulator = {

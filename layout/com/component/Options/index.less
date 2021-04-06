@@ -7,9 +7,12 @@
 
       bottom: 0;
       right: 414px;
+      z-index: 2;
 
       :global {
             .option_wrap {
+                  position: relative;
+                  z-index: 2;
                   width: @size;
                   height: @size;
                   border-top: 1px solid var(--color_border);
@@ -18,18 +21,49 @@
                   cursor: pointer;
             }
 
-            .option_items {
-                  transition: all ease 0.15s;
-                  transform: translateY(100%);
-                  transform-origin: right;
-
-                  &.visible {
-                        transform: translateY(0);
-                  }
-            }
-
             .btn_toggle {
                   position: relative;
+            }
+      }
+}
+
+.modal {
+      :global {
+            .modal_wrap {
+                  padding-top: 12px;
+
+                  .option_items {
+                        justify-content: space-between;
+
+                        .option_item {
+                              flex-direction: column;
+                              width: 25%;
+                              padding: 18px 0;
+
+                              .icon {
+                                    font-size: 24px;
+                              }
+
+                              .text {
+                                    margin-top: 9px;
+                                    font-size: 13px;
+                              }
+                        }
+                  }
+
+                  .toggle_items {
+                        padding: 6px 0;
+                        border-radius: 12px;
+                        border-top: 1px solid var(--color_border);
+
+                        .toggle_item {
+                              padding: 12px 24px;
+
+                              .label {
+                                    font-size: 13px;
+                              }
+                        }
+                  }
             }
       }
 }
