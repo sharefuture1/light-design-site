@@ -31,4 +31,12 @@
       &.error {
             .fn_not_default(@color_error);
       }
+
+      @media screen and (max-width:767px) {
+            box-shadow: none;
+
+            &.default{
+                  border: 1px solid black;
+            }
+      }
 }

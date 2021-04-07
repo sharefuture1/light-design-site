@@ -4,6 +4,10 @@
       padding: 18px 36px;
       color: black;
 
+      @media screen and (max-width:767px) {
+            padding: 0;
+      }
+
       :global {
             table {
                   width: 100%;
@@ -65,12 +69,12 @@
                   margin-top: 15px;
                   margin-bottom: 0;
 
-                  li{
+                  li {
                         margin-bottom: 9px;
                         list-style-type: circle;
                         font-size: 13px;
 
-                        &:last-child{
+                        &:last-child {
                               margin-bottom: 0;
                         }
                   }

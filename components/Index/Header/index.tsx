@@ -40,7 +40,7 @@ const Index = () => {
 					className='left absolute h_100 border_box flex align_center left_0'
 					to='/'
 				>
-					<Logo />
+					<Logo size={0.72} />
 				</NavLink>
 				<div className='nav_items w_100 h_100 border_box flex justify_center align_center'>
 					{nav_items.map(item => (
@@ -61,7 +61,7 @@ const Index = () => {
 					target='_blank'
 					rel='noopener noreferrer'
 				>
-					<MatrixAge />
+					<MatrixAge size={0.72} />
 				</a>
 			</header>
 		</div>

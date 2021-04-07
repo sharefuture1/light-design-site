@@ -27,7 +27,7 @@
             }
       }
 
-      .ant-modal-mask{
+      .ant-modal-mask {
             background-color: rgba(0, 0, 0, 0.72);
             backdrop-filter: blur(6px);
       }
@@ -91,6 +91,24 @@
             }
       }
 
+      @media screen and (max-width:767px) {
+            .ant-modal-centered {
+                  .ant-modal {
+                        vertical-align: bottom;
+                        max-width: 100% !important;
+                        padding-bottom: 0;
+                        margin: 0;
+
+                        .ant-modal-content{
+                              border-radius: 0;
+                              border-top-left-radius: 20px;
+                              border-top-right-radius: 20px;
+                              padding-bottom: env(safe-area-inset-bottom);
+                        }
+                  }
+            }
+      }
+
       .ant-tooltip {
             .ant-tooltip-content {
                   .ant-tooltip-inner {
@@ -106,7 +124,7 @@
                         padding: 0;
                         border-radius: 6px;
                         font-size: 13px;
-                        background-color: fade(white,100%);
+                        background-color: fade(white, 100%);
 
                         .ant-message-custom-content {
                               padding: 12px 18px;
@@ -119,7 +137,7 @@
                               }
 
                               .set_color(@color) {
-                                    border-bottom:3px solid fade(@color, 100%);
+                                    border-bottom: 3px solid fade(@color, 100%);
                               }
 
                               &.ant-message-success {

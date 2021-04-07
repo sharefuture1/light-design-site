@@ -1,13 +1,17 @@
-import { memo, useState, useEffect } from 'react'
+import { memo, useState } from 'react'
 import NavLink from '@/components/NavLink'
 import { Modal, Switch } from 'antd'
 import {
 	HomeOutlined,
 	GithubOutlined,
-	UnorderedListOutlined,
 	ReadOutlined,
-	BookOutlined
+	BookOutlined,
+	CloseOutlined,
+	MenuOutlined,
+	MenuUnfoldOutlined,
+	ControlOutlined
 } from '@ant-design/icons'
+import useResponsive from '@/hooks/use_responsive'
 import styles from './index.less'
 
 interface IProps {
@@ -29,20 +33,23 @@ const Index = (props: IProps) => {
 		fold_anchors
 	} = props
 	const [ state_visible_options, setStateVisibleOptions ] = useState(false)
+	const { is_client, is_mobile } = useResponsive()
 
-	useEffect(() => {
-		if (fold_menu) return
-		if (fold_simulator) return
+	const setVisible = () => {
+		if (is_client && is_mobile) {
+			if (!fold_menu) return changeMenuFoldStatus(!fold_menu)
+			if (!fold_simulator) return changeSimulatorFoldStatus(!fold_simulator)
+		}
 
-		if (window.innerWidth < 1500) changeSimulatorFoldStatus(true)
-	}, [])
+		setStateVisibleOptions(!state_visible_options)
+	}
 
 	return (
 		<div
 			className={`
                         ${styles._local} 
-                        ${fold_simulator ? styles.fold_simulator : ''} 
-                        border_box flex flex_column fixed
+                        ${fold_simulator || (is_client && is_mobile) ? styles.fold_simulator : ''} 
+                        border_box flex fixed
                   `}
 		>
 			{state_visible_options && (
@@ -54,6 +61,7 @@ const Index = (props: IProps) => {
 					onCancel={() => setStateVisibleOptions(false)}
 					footer={null}
 					className={styles.modal}
+					transitionName={is_client && is_mobile ? 'ant-move-down' : 'ant-zoom'}
 				>
 					<div className='modal_wrap w_100 border_box flex flex_column'>
 						<div className='option_items w_100 border_box flex'>
@@ -119,11 +127,37 @@ const Index = (props: IProps) => {
 					</div>
 				</Modal>
 			)}
+			{is_client &&
+			is_mobile &&
+			fold_menu &&
+			fold_simulator && (
+				<div
+					className='btn_toggle option_wrap border_box flex justify_center align_center use_hover'
+					onClick={() => changeMenuFoldStatus(false)}
+				>
+					<MenuUnfoldOutlined />
+				</div>
+			)}
+			{is_client &&
+			is_mobile &&
+			fold_menu &&
+			fold_simulator && (
+				<div
+					className='btn_toggle option_wrap border_box flex justify_center align_center use_hover'
+					onClick={() => changeSimulatorFoldStatus(false)}
+				>
+					<ControlOutlined />
+				</div>
+			)}
 			<div
 				className='btn_toggle option_wrap border_box flex justify_center align_center use_hover'
-				onClick={() => setStateVisibleOptions(!state_visible_options)}
+				onClick={() => setVisible()}
 			>
-				<UnorderedListOutlined />
+				{is_client && is_mobile && (!fold_menu || !fold_simulator) ? (
+					<CloseOutlined />
+				) : (
+					<MenuOutlined />
+				)}
 			</div>
 		</div>
 	)

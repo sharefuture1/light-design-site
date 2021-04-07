@@ -5,6 +5,7 @@ import Anchors from './component/Anchors'
 import Options from './component/Options'
 import Header from './component/Header'
 import Simulator from './component/Simulator'
+import useResponsive from '@/hooks/use_responsive'
 import { IPackageJson } from '@/@types/global.interface'
 import { IAppModelState } from '@/models/app'
 import styles from './index.less'
@@ -24,25 +25,26 @@ interface IProps {
 const Index = (props: IProps) => {
 	const {
 		changeMenuFoldStatus,
-            changeSimulatorFoldStatus,
-            changeAnchorsFoldStatus,
+		changeSimulatorFoldStatus,
+		changeAnchorsFoldStatus,
 		children,
 		fold_menu,
-            fold_simulator,
-            fold_anchors,
+		fold_simulator,
+		fold_anchors,
 		package_json,
 		anchors
 	} = props
 	const { name, component } = package_json
-	const [ state_visible_header, setStateVisibleHeader ] = useState(true)
+	const [ state_visible_page_component, setStateVisiblePageComponent ] = useState(true)
 	const { pathname } = useRouter()
+	const { is_client, is_mobile } = useResponsive()
 	const pathnames = pathname.split('/')
 
 	useEffect(
 		() => {
 			const visible = pathnames[1] === 'com' && pathnames.length === 4
 
-			setStateVisibleHeader(visible)
+			setStateVisiblePageComponent(visible)
 		},
 		[ pathname ]
 	)
@@ -55,17 +57,17 @@ const Index = (props: IProps) => {
 	const props_anchors = {
 		anchors,
 		fold_menu,
-            fold_simulator,
-            fold_anchors
+		fold_simulator,
+		fold_anchors
 	}
 
 	const props_options = {
 		changeMenuFoldStatus,
-            changeSimulatorFoldStatus,
-            changeAnchorsFoldStatus,
+		changeSimulatorFoldStatus,
+		changeAnchorsFoldStatus,
 		fold_menu,
-            fold_simulator,
-            fold_anchors
+		fold_simulator,
+		fold_anchors
 	}
 
 	const props_simulator = {
@@ -89,9 +91,13 @@ const Index = (props: IProps) => {
                         `}
 			>
 				<div className='content border_box flex flex_column'>
-					<Anchors {...props_anchors} />
+					{state_visible_page_component && (
+						<div className='w_100 border_box flex flex_column'>
+							<Anchors {...props_anchors} />
+							<Header {...props_header} />
+						</div>
+					)}
 					<Options {...props_options} />
-					{state_visible_header && <Header {...props_header} />}
 					{children}
 				</div>
 			</div>

@@ -1,13 +1,13 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 
-const APP_NAME='Light Design'
+const APP_NAME = 'Light Design'
 
 class Index extends Document {
 	static async getInitialProps (ctx) {
 		const initialProps = await Document.getInitialProps(ctx)
 
 		return { ...initialProps }
-      }
+	}
 
 	render () {
 		return (

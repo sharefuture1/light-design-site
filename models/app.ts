@@ -7,7 +7,7 @@ export interface IAppModelState {
 	fold_menu: boolean
 	fold_simulator: boolean
 	fold_anchors: boolean
-	menu_items: Array<IMenuItems>
+	menu_items?: Array<IMenuItems>
 	package_json: IPackageJson
 	anchors: Array<{
 		name: string

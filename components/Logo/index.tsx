@@ -3,9 +3,11 @@ import styles from './index.less'
 const Index = ({ size = 1, bg = false }: { size?: number; bg?: boolean }) => {
 	return (
 		<div
-			className={`flex flex_column cursor_point ${styles._local} ${bg
-				? styles.bg
-				: ''}`}
+			className={`
+                        ${styles._local}
+                        ${bg ? styles.bg : ''}
+                        flex flex_column cursor_point 
+                  `}
 			style={{ transform: `scale(${size})` }}
 		>
 			<div className='border_box flex'>
