@@ -38,7 +38,7 @@ const Index = (props: IProps) => {
                         h_100vh border_box flex flex_column justify_center fixed top_0 right_0 transition_normal
                   `}
 		>
-			<div className='simulator w_100 h_100 border_box flex flex_column justify_center align_center'>
+			<div className='simulator w_100 border_box flex flex_column justify_center align_center'>
 				<Image
 					width='150px'
 					height='150px'

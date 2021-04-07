@@ -9,9 +9,14 @@
       overflow: hidden;
       background-color: white;
 
+      @media screen and (max-width:767px) {
+            width: 100%;
+       }
+
       :global {
             .simulator {
                   overflow: hidden;
+                  flex: 1;
 
                   .iframe {
                         height: 100%;
