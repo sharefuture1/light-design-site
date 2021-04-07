@@ -2,6 +2,7 @@ import { memo, ReactElement } from 'react'
 import { connect } from 'react-redux'
 import { useRouter } from 'next/router'
 import store from 'store'
+import usePWA from '@/hooks/use_pwa'
 import useSubscriptions from '@/hooks/use_subscriptions'
 import { IAppModelState } from '@/models/app'
 import Com from './com'
@@ -26,7 +27,9 @@ const Index = (props: IProps) => {
 	const app_fold_anchors = useSubscriptions(fold_anchors, true)
 	const router = useRouter()
 	const { pathname } = router
-	const pathnames = pathname.split('/')
+      const pathnames = pathname.split('/')
+      
+      usePWA()
 
 	const props_com = {
 		fold_menu: app_fold_menu,
