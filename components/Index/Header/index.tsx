@@ -1,9 +1,11 @@
 import NavLink from '@/components/NavLink'
 import Logo from '@/components/Logo'
 import MatrixAge from '@/components/MatrixAge'
+import useResponsive from '@/hooks/use_responsive'
 import styles from './index.less'
 
 const Index = () => {
+	const { is_mobile } = useResponsive()
 	const nav_items: Array<{
 		name: string
 		path: string
@@ -40,7 +42,7 @@ const Index = () => {
 					className='left absolute h_100 border_box flex align_center left_0'
 					to='/'
 				>
-					<Logo size={0.72} />
+					<Logo size={is_mobile ? 0.72 : 1} />
 				</NavLink>
 				<div className='nav_items w_100 h_100 border_box flex justify_center align_center'>
 					{nav_items.map(item => (
@@ -61,7 +63,7 @@ const Index = () => {
 					target='_blank'
 					rel='noopener noreferrer'
 				>
-					<MatrixAge size={0.72} />
+					<MatrixAge size={is_mobile ? 0.72 : 1} />
 				</a>
 			</header>
 		</div>

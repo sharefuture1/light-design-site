@@ -1,9 +1,11 @@
-import { useState, useLayoutEffect } from 'react'
+import { useState, useLayoutEffect, useEffect } from 'react'
 
 const Index = <A, I>(app_state: A, init_state: I) => {
 	const [ state, setState ] = useState<A | I>(init_state)
 
-	useLayoutEffect(
+	const useIsomorphicLayoutEffect =  typeof window !== 'undefined' ? useLayoutEffect : useEffect
+
+	useIsomorphicLayoutEffect(
 		() => {
 			setState(app_state)
 		},
