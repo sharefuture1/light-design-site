@@ -27,16 +27,17 @@ const Index = (props: IProps) => {
 	const app_fold_simulator = useSubscriptions(fold_simulator, false)
 	const app_fold_anchors = useSubscriptions(fold_anchors, true)
 	const router = useRouter()
-	const { is_mobile } = useResponsive()
+	const { is_client, is_mobile } = useResponsive()
 	const { pathname, asPath } = router
 	const pathnames = pathname.split('/')
 
 	useEffect(
 		() => {
+			if (!is_client) return
 			if (!is_mobile) return
 
-			changeMenuFoldStatus(true)
-			changeSimulatorFoldStatus(true)
+			if (!app_fold_menu) changeMenuFoldStatus(true)
+			if (!app_fold_simulator) changeSimulatorFoldStatus(true)
 		},
 		[ asPath, is_mobile ]
 	)
@@ -46,28 +47,28 @@ const Index = (props: IProps) => {
 	const changeMenuFoldStatus = (status?: boolean) => {
 		dispatch({
 			type: 'app/updateState',
-			payload: { fold_menu: status || !fold_menu }
+			payload: { fold_menu: status || !app_fold_menu }
 		})
 
-		store.set('fold_menu', status || !fold_menu)
+		store.set('fold_menu', status || !app_fold_menu)
 	}
 
 	const changeSimulatorFoldStatus = (status?: boolean) => {
 		dispatch({
 			type: 'app/updateState',
-			payload: { fold_simulator: status || !fold_simulator }
+			payload: { fold_simulator: status || !app_fold_simulator }
 		})
 
-		store.set('fold_simulator', status || !fold_simulator)
+		store.set('fold_simulator', status || !app_fold_simulator)
 	}
 
 	const changeAnchorsFoldStatus = (status?: boolean) => {
 		dispatch({
 			type: 'app/updateState',
-			payload: { fold_anchors: status || !fold_anchors }
+			payload: { fold_anchors: status || !app_fold_anchors }
 		})
 
-		store.set('fold_anchors', status || !fold_anchors)
+		store.set('fold_anchors', status || !app_fold_anchors)
 	}
 
 	const props_com = {
