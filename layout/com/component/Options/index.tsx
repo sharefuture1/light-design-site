@@ -54,13 +54,13 @@ const Index = (props: IProps) => {
 		>
 			{state_visible_options && (
 				<Modal
+					className={styles.modal}
 					visible={state_visible_options}
 					title='更多'
 					centered
 					closable={false}
 					onCancel={() => setStateVisibleOptions(false)}
 					footer={null}
-					className={styles.modal}
 					transitionName={is_client && is_mobile ? 'ant-move-down' : 'ant-zoom'}
 				>
 					<div className='modal_wrap w_100 border_box flex flex_column'>

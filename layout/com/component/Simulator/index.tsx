@@ -7,6 +7,7 @@ import { If, Then } from 'react-if'
 import NavLink from '@/components/NavLink'
 import Logo from '@/components/Logo'
 import { base_url } from '@/utils/use_request'
+import useResponsive from '@/hooks/use_responsive'
 import styles from './index.less'
 
 const { Group, Button } = Radio
@@ -21,6 +22,7 @@ const Index = (props: IProps) => {
 	const { fold, component, name } = props
 	const [ state_visible_modal, setStateVisibleModal ] = useState(false)
 	const [ state_download_type, setStateDownloadType ] = useState<'ts' | 'js'>('ts')
+	const { is_client, is_mobile } = useResponsive()
 
 	const { query } = useRouter()
 
@@ -28,8 +30,8 @@ const Index = (props: IProps) => {
 		const file_type = state_download_type === 'ts' ? 'es6' : 'es5'
 
 		location.href = `${base_url}/coms/downloadCom/${component}?file_type=${file_type}`
-      }
-      
+	}
+
 	return (
 		<div
 			className={`
@@ -67,15 +69,20 @@ const Index = (props: IProps) => {
 					<div className='option_items_wrap w_100 border_box flex'>
 						{state_visible_modal && (
 							<Modal
+								className={styles.modal}
 								title={`下载 ${component} 组件`}
-								width='400px'
-								wrapClassName='modal_download'
 								centered={true}
 								closable={false}
-								getContainer={false}
 								visible={state_visible_modal}
 								onCancel={() => setStateVisibleModal(false)}
 								onOk={donwload}
+								transitionName={
+									is_client && is_mobile ? (
+										'ant-move-down'
+									) : (
+										'ant-zoom'
+									)
+								}
 							>
 								<div className='download_items flex justify_center'>
 									<Group
