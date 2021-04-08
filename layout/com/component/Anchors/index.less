@@ -9,6 +9,11 @@
       padding-left: 270px;
       padding-right: calc(414px + @size);
 
+      @media screen and (max-width:767px) {
+            top: 0;
+            box-shadow: 0 0 30px #eee;
+      }
+
       &.fold_menu {
             padding-left: 0;
       }
@@ -53,14 +58,14 @@
                   }
 
                   @media screen and (max-width:767px) {
-                        backdrop-filter: unset;
-                        background-color: white;
+                        border: none;
+                        border-bottom: 1px solid var(--color_border);
 
                         .anchor_item {
 
                               &:last-child {
                                     .next {
-                                          margin-right: 148px;
+                                          margin-right: 0px;
                                     }
                               }
                         }

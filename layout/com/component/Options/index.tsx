@@ -9,7 +9,7 @@ import {
 	CloseOutlined,
 	MenuOutlined,
 	MenuUnfoldOutlined,
-	ControlOutlined
+	CodeOutlined
 } from '@ant-design/icons'
 import useResponsive from '@/hooks/use_responsive'
 import styles from './index.less'
@@ -127,37 +127,39 @@ const Index = (props: IProps) => {
 					</div>
 				</Modal>
 			)}
-			{is_client &&
-			is_mobile &&
-			fold_menu &&
-			fold_simulator && (
-				<div
-					className='btn_toggle option_wrap border_box flex justify_center align_center use_hover'
-					onClick={() => changeMenuFoldStatus(false)}
-				>
-					<MenuUnfoldOutlined />
-				</div>
-			)}
-			{is_client &&
-			is_mobile &&
-			fold_menu &&
-			fold_simulator && (
-				<div
-					className='btn_toggle option_wrap border_box flex justify_center align_center use_hover'
-					onClick={() => changeSimulatorFoldStatus(false)}
-				>
-					<ControlOutlined />
-				</div>
-			)}
-			<div
-				className='btn_toggle option_wrap border_box flex justify_center align_center use_hover'
-				onClick={() => setVisible()}
-			>
-				{is_client && is_mobile && (!fold_menu || !fold_simulator) ? (
-					<CloseOutlined />
-				) : (
-					<MenuOutlined />
+			<div className='mobile_nav border_box flex'>
+				{is_client &&
+				is_mobile &&
+				fold_menu &&
+				fold_simulator && (
+					<div
+						className='btn_toggle option_wrap border_box flex justify_center align_center use_hover'
+						onClick={() => changeMenuFoldStatus(false)}
+					>
+						<MenuUnfoldOutlined />
+					</div>
 				)}
+				{is_client &&
+				is_mobile &&
+				fold_menu &&
+				fold_simulator && (
+					<div
+						className='btn_toggle option_wrap border_box flex justify_center align_center use_hover'
+						onClick={() => changeSimulatorFoldStatus(false)}
+					>
+						<CodeOutlined />
+					</div>
+				)}
+				<div
+					className='btn_toggle option_wrap border_box flex justify_center align_center use_hover'
+					onClick={() => setVisible()}
+				>
+					{is_client && is_mobile && (!fold_menu || !fold_simulator) ? (
+						<CloseOutlined />
+					) : (
+						<MenuOutlined />
+					)}
+				</div>
 			</div>
 		</div>
 	)

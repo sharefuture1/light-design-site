@@ -34,6 +34,22 @@
                         font-weight: normal;
                         color: var(--color_text_desc);
                   }
+
+                  @media screen and (max-width:767px) {
+
+                        th,
+                        td {
+                              &:nth-child(4),
+                              &:nth-child(5),
+                              &:nth-child(6) {
+                                    display: none;
+                              }
+
+                              &:nth-child(3){
+                                    text-align: right;
+                              }
+                        }
+                  }
             }
 
             h1,

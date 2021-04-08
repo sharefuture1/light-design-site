@@ -22,7 +22,7 @@ const Index = (props: IProps) => {
                   `}
 		>
 			<div className='anchors_items w_100 h_100 border_box flex align_center'>
-				{anchors.map((item, index) => (
+				{anchors.map((item) => (
 					<a className='anchor_item' href={'#' + item.name} key={item.name}>
 						<span
 							className={`name transition_normal ${item.active

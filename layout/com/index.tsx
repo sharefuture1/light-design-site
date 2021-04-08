@@ -90,7 +90,10 @@ const Index = (props: IProps) => {
                               content_wrap w_100 border_box flex justify_center transition_normal
                         `}
 			>
-				<div className='content border_box flex flex_column'>
+                        <div className='content border_box flex flex_column'>
+                              { is_client && is_mobile && !fold_anchors && (
+                                    <div className="placeholder_anchors w_100"></div>
+                              )}
 					{state_visible_page_component && (
 						<div className='w_100 border_box flex flex_column'>
 							<Anchors {...props_anchors} />
