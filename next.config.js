@@ -22,6 +22,7 @@ const config = {
 	},
 	pwa: {
 		disable: process.env.NODE_ENV === 'development',
+		workboxOptions: { skipWaiting: true },
 		dest: 'public'
 	},
 	webpack: (config, { isServer }) => {
