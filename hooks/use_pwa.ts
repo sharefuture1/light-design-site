@@ -20,7 +20,7 @@ const Index = () => {
 
 			const promptNewVersionAvailable = () => {
 				if (
-					confirm(
+					window.confirm(
 						'A newer version of this web app is available, reload to update?'
 					)
 				) {
