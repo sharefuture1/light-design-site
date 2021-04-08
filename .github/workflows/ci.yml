@@ -34,4 +34,4 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.DEPLOY_KEY }}
-          script: cd /App/light-design-site/ && npm run d:prod
+          script: cd /App/light-design-site/ && npm run d:prod && docker system prune -af
