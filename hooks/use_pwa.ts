@@ -13,15 +13,25 @@ const Index = () => {
 
 				message.warning('检测到文件更新，2s后自动刷新以更新页面', 2)
 
-				setTimeout(() => {
-					if ('caches' in window) {
-						caches.keys().then(items => {
-							items.forEach(async item => {
-								await caches.delete(item)
-							})
-						})
-					}
+				const waitDelete = (): Promise<void> => {
+					return new Promise(async resolve => {
+						if ('caches' in window) {
+							const keys = await caches.keys()
 
+							for (const i of keys) {
+								await caches.delete(i)
+							}
+
+							resolve()
+						} else {
+							resolve()
+						}
+					})
+				}
+
+				setTimeout(async () => {
+                              await waitDelete()
+                              
 					window.location.reload(true)
 				}, 1800)
 			})
