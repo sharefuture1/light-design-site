@@ -1,44 +1,40 @@
 import { useEffect } from 'react'
-import { message } from 'antd'
+// import { message } from 'antd'
 
 const Index = () => {
 	useEffect(() => {
 		if (typeof window !== 'undefined' && 'serviceWorker' in navigator) {
-			navigator.serviceWorker.addEventListener('install', () => {
-				window.workbox.messageSkipWaiting()
-			})
+			const wb = window.workbox
 
-			let refreshing = false
+			// navigator.serviceWorker.addEventListener('install', () => {
+			// 	window.workbox.messageSkipWaiting()
+			// })
 
-			navigator.serviceWorker.addEventListener('controllerchange', () => {
-				if (refreshing) return
+			// navigator.serviceWorker.addEventListener('controllerchange', () => {
+			// 	message.warning('检测到文件更新，2s后自动刷新以更新页面', 2)
 
-				refreshing = true
+			// 	setTimeout(async () => {
+			// 		window.location.reload()
+			// 	}, 1800)
+			// })
 
-				message.warning('检测到文件更新，2s后自动刷新以更新页面', 2)
-
-				const waitDelete = (): Promise<void> => {
-					return new Promise(async resolve => {
-						if ('caches' in window) {
-							const keys = await caches.keys()
-
-							for (const i of keys) {
-								await caches.delete(i)
-							}
-
-							resolve()
-						} else {
-							resolve()
-						}
+			const promptNewVersionAvailable = () => {
+				if (
+					confirm(
+						'A newer version of this web app is available, reload to update?'
+					)
+				) {
+					wb.addEventListener('controlling', () => {
+						window.location.reload()
 					})
+
+					wb.messageSkipWaiting()
 				}
+			}
 
-				setTimeout(async () => {
-					await waitDelete()
+			wb.addEventListener('waiting', promptNewVersionAvailable)
 
-					window.location.reload()
-				}, 1800)
-			})
+			wb.register()
 		}
 	}, [])
 }
