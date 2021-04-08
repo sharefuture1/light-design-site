@@ -20,14 +20,14 @@ const Index = () => {
 
 			wb.addEventListener('waiting', () => {
 				wb.messageSkipWaiting()
+			})
 
-				wb.addEventListener('controlling', () => {
-					message.warning('检测到文件更新，2s后自动刷新以更新页面', 2)
+			wb.addEventListener('controlling', () => {
+				message.warning('检测到文件更新，2s后自动刷新以更新页面', 2)
 
-					setTimeout(async () => {
-						window.location.reload()
-					}, 1800)
-				})
+				setTimeout(() => {
+					window.location.reload()
+				}, 1800)
 			})
 
 			wb.register()
