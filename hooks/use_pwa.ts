@@ -5,39 +5,17 @@ const Index = () => {
 	useEffect(() => {
 		if (
 			typeof window !== 'undefined' &&
-			'serviceWorker' in navigator &&
-			window.workbox !== undefined
+			'serviceWorker' in navigator 
 		) {
-			let wb = window.workbox
-			let timer
+			let timer:NodeJS.Timeout
 
-			// navigator.serviceWorker.addEventListener('install', () => {
-			// 	window.workbox.messageSkipWaiting()
-			// })
-
-			// navigator.serviceWorker.addEventListener('controllerchange', () => {
-			// 	message.warning('检测到文件更新，2s后自动刷新以更新页面', 2)
-
-			// 	setTimeout(async () => {
-			// 		window.location.reload()
-			// 	}, 1800)
-			// })
-			// Ctrl+Shift+R
-			// Cmd+Shift+R
-
-			wb.addEventListener('waiting', () => {
-				wb.messageSkipWaiting()
+			navigator.serviceWorker.addEventListener('install', () => {
+				window.workbox.messageSkipWaiting()
 			})
 
-			wb.addEventListener('controlling', () => {
-				message.warning('检测到文件更新，2s后自动刷新以更新页面', 2)
-
-				timer = setTimeout(() => {
-					window.location.reload()
-				}, 1800)
+			navigator.serviceWorker.addEventListener('controllerchange', () => {
+				message.warning('检测到文件更新，Ctrl+Shift+R | Cmd+Shift+R 刷新以更新页面', 0)
 			})
-
-			wb.register()
 
 			return () => clearTimeout(timer)
 		}
