@@ -21,6 +21,8 @@ const Index = () => {
 
 				wb.messageSkipWaiting()
 			})
+
+			wb.register()
 		}
 	}, [])
 }
