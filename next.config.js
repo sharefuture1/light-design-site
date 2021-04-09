@@ -1,6 +1,7 @@
 const withPlugins = require('next-compose-plugins')
 const withAntdLess = require('next-antd-aza-less')
 const withPWA = require('next-pwa')
+const runtimeCaching = require('next-pwa/cache')
 const { modifyVars, handleAntd } = require('./config/build/use_antd')
 const { handleMarkdown } = require('./config/build/use_md')
 const { handleOptimize } = require('./config/build/use_optimize')
@@ -22,8 +23,9 @@ const config = {
 	},
 	pwa: {
 		disable: process.env.NODE_ENV === 'development',
-		skipWaiting: true,
-		dest: 'public'
+		dest: 'public',
+            dynamicStartUrl:false,
+            runtimeCaching
 	},
 	webpack: (config, { isServer }) => {
 		handleAntd(config, isServer)

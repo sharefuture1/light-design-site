@@ -4,9 +4,7 @@ const APP_NAME = 'Light Design'
 
 class Index extends Document {
 	static async getInitialProps (ctx) {
-		const initialProps = await Document.getInitialProps(ctx)
-
-		return { ...initialProps }
+		return await Document.getInitialProps(ctx)
 	}
 
 	render () {
