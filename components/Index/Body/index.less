@@ -1,17 +1,89 @@
+@keyframes rotate {
+      form {
+            transform: rotate(0deg);
+      }
+
+      to {
+            transform: rotate(360deg);
+      }
+}
+
 ._local {
       :global {
+            .taichi_wrap {
+                  @size: 1800px;
+                  @size_dot: @size*0.16;
+
+                  .taichi {
+                        position: relative;
+                        width: @size;
+                        height: @size;
+                        border: 2px solid #000;
+                        border-width: 2px calc(@size / 2) 2px 2px;
+                        border-radius: 50%;
+
+                        :local {
+                              animation: rotate 24s infinite linear;
+                        }
+
+                        .white-circle {
+                              position: absolute;
+                              top: 0;
+                              left: 50%;
+                              width: calc(@size / 2 - 2px);
+                              height: calc(@size / 2 - 2px);
+                              border-radius: 50%;
+                              background: #fff;
+                        }
+
+                        .white-circle::after {
+                              position: absolute;
+                              top: calc((@size / 2 - @size_dot) / 2);
+                              left: calc((@size / 2 - @size_dot) / 2);
+                              width: @size_dot;
+                              height: @size_dot;
+                              border-radius: 50%;
+                              background: #000;
+                              content: "";
+                        }
+
+                        .black-circle {
+                              position: absolute;
+                              top: 50%;
+                              left: 50%;
+                              width: calc(@size / 2 - 2px);
+                              height: calc(@size / 2 - 2px);
+                              border-radius: 50%;
+                              background: #000;
+                        }
+
+                        .black-circle::after {
+                              position: absolute;
+                              top: calc((@size / 2 - @size_dot) / 2);
+                              left: calc((@size / 2 - @size_dot) / 2);
+                              width: @size_dot;
+                              height: @size_dot;
+                              border-radius: 50%;
+                              background: #fff;
+                              content: "";
+                        }
+                  }
+            }
+
+            .taichi_mask {
+                  background-color: rgba(255, 255, 255, 0.48);
+
+                  backdrop-filter: blur(81px);
+                  -webkit-backdrop-filter: blur(81px);
+            }
+
             .content_wrap {
+                  position: relative;
+                  z-index: 10;
+
                   .slogan {
                         margin-bottom: 4px;
                         font-size: 48px;
-
-                        &:hover {
-                              background-image: var(--color_text_colored);
-                              -webkit-background-clip: text;
-                              background-clip: text;
-
-                              -webkit-text-fill-color: transparent;
-                        }
                   }
 
                   .description {
@@ -23,7 +95,6 @@
                         width: 120px;
                         height: 48px;
                         border: 1px solid black;
-                        background-color: white;
                         font-size: 16px;
                         line-height: 1;
                   }

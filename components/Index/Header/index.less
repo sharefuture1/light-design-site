@@ -1,4 +1,6 @@
 ._local {
+      z-index: 10;
+
       :global {
             height: 144px;
 
@@ -8,12 +10,12 @@
 
                   .nav_items {
                         .nav_item {
-                              @border_size: 2px;
-
+                              margin: 0 6px;
                               width: 80px;
                               height: 40px;
-                              margin: 0 6px;
                               opacity: 0.6;
+
+                              @border_size: 2px;
 
                               &:hover {
                                     opacity: 1;
@@ -35,10 +37,10 @@
 
                         .nav_items {
                               .nav_item {
-                                    width: auto;
                                     padding: 0 6px;
-                                    opacity: 1;
+                                    width: auto;
                                     font-size: 12px;
+                                    opacity: 1;
                               }
                         }
 
